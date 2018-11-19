@@ -1,52 +1,46 @@
-Hello.
-On est sur la branche de Camille.
-
-Projet 2 :
-Visualisation des résultats par candidat.
-Hugo Sonnery [11 h 17]
+DESCIPTION DU RETOUR DE GEN.PY
 {
  “candidats”:
  [
  {
-   “id”: 1,
-   “nom”: 1,
-   “prenom”: 1,
-   “dateNaissance”: 1,
-   “lieuNaissance”: 1,
-   “dateEntretien”: 1,
-   “lieuEntretien”: 1,
-   “fichiers”: 1
+   “id”: int,#commence à 0 jusqu'à nombre_candidats
+   “nom”: string,
+   “prenom”: string,
+   “dateNaissance”: string,jour/mois/année
+   “lieuNaissance”: string,
+   “dateEntretien”: string,jour/mois/année
+   “lieuEntretien”: string,
+   “fichiers”:
    [
      {
-       “id” : 1,
-       “nom”: 1,
-       “contenu”: 1,
-       “nomTest”: 1,
-       “contenu_Test”: 1,
-       “stats”: 1
+       “id” : string, ex: id_candidat =1 id='1001' pour le deuxième fichier uploadé, '1000' pour le premier
+       “nom”: string,
+       “contenu”: string,
+       “nomTest”: string,
+       “contenu_Test”: string,
+       “stats”:
        {
-         “functionsCount”: 1,
-         “commentCount”: 1,
-         “variableNameQuality”: 1,
-         “duplicate”: 1
+         “functionsCount”: int, entre 0 et 100
+         “commentCount”: int, entre 0 et 100
+         “variableNameQuality”: float, entre 0 et 1
+         “duplicate”:
          [
            {
-             “id”: 1,
-             “similarity”: 1
+             “id”: int, #identifiant du candidat sur lequel il a copié
+             “similarity”: string
            }
          ]
        },
-       “compteRendu”: 1,
-       “dateUpload”: 1
+       “compteRendu”: string,
+       “dateUpload”: string jour/mois/année
      }
    ],
+   “etat”:string,
    “metrics”:
    {
-     “level”: 1
+     “level”: int #entre 1 et 5
    }
  }
  ]
 }
-Zone de message
 
-Envoyer un message à week2

@@ -1,9 +1,14 @@
+#LIBRARIES
 import json
 import random as rd
 import numpy as np
+import visualizer.db.get_random_date as grd
+
 
 #On créer des candidats
-nombre_candidats=40
+nombre_candidats=1
+
+
 #On formalise l'ecriture des noms et prenoms
 def formalise_nom(nom):
     nom=nom.replace(' ','')
@@ -40,8 +45,10 @@ for ligne in noms:
     while ligne[car] != '\t':
         car+=1
     liste_noms.append(formalise_nom(ligne[:car]))
-#On rècupère une liste de villes
 
+
+
+#On rècupère une liste de villes
 villes=open("villes_france.csv", "r").readlines()
 liste_villes=[]
 for ville in villes:
@@ -62,7 +69,7 @@ for ville in villes:
 liste_lieu_rdv=['Eiffel','Bouygues','Breguet']
 
 
-#On créer des fichiers avec des stats
+##############On créer des fichiers avec des stats
 nom_fichier_python="exercise.py"
 contenu_python="""
 def sum(a,b):
@@ -74,11 +81,24 @@ import exercise.py as Ex
 
 def test_sum():
     assert ( Ex.sum(a,b)== a+b)"""
-functionsCount=rd.randint(0,100)
-commentCount=rd.randint(0,100)
-variableNameQuality=rd.random()
-compteRendu="Bon code!"
-level=rd.randint(1,5)
+def combien_fichier(id_candidat,dateEntretien):
+    nombre_fichiers=int((np.random.exponential(9,1))//1)
+    nombre_fichiers=1
+    fichiers=[]
+    for num_fichier in range(nombre_fichiers):
+        id=str(id_candidat)+str(num_fichier//100)+str(num_fichier//10)+str(num_fichier//1)
+        nom=nom_fichier_python
+        contenu=contenu_python
+        nomTest=nom_fichier_test_python
+        contenu_Test=contenu_test
+        dateUpload=grd.date_depot_fichier(dateEntretien)
+        stats={"functionsCount": rd.randint(0,100),"commentCount": rd.randint(0,100),
+                "variableNameQuality": rd.random(),"duplicate": As_tu_copier(),
+                "compteRendu":"Bon code!",'dateUpload' :dateUpload}
+        fichiers.append({'id':id,'nom':nom,'contenu':contenu,'nomTest':nomTest,'contenu_Test':contenu_Test,'stats':stats})
+    return(fichiers)
+
+#CHEATING
 def As_tu_copier():
     nombre_similarity=int((np.random.exponential(9,1))//1)#nombre de triches
     similarities=[]
@@ -87,10 +107,28 @@ def As_tu_copier():
         contenu_triche="a+b"
         similarities.append({'id':id_candidat,'similarity':contenu_triche})
     return(similarities)
-print(As_tu_copier())
+
+#Etat de la candidature
+etats=['Postulé','Exercice donné','Code en cours de vérification','Fin de candidature','Refus','Recruté']
+
 
 #On génère un candidat de façon random
-nom=liste_noms[rd.randint(0,len(liste_noms)-1)]
-prenom=liste_prenoms[rd.randint(0,len(liste_prenoms)-1)]
-ville_de_naissance=liste_villes[rd.randint(0,len(liste_villes)-1)]
-lieu_rdv=liste_lieu_rdv[rd.randint(0,len(liste_lieu_rdv)-1)]
+def creation_candidat(id_candidat):
+    nom=liste_noms[rd.randint(0,len(liste_noms)-1)]
+    prenom=liste_prenoms[rd.randint(0,len(liste_prenoms)-1)]
+    dateNaissance,dateEntretien=grd.dates_aleatoires_naissance_entretien()
+    lieuNaissance=liste_villes[rd.randint(0,len(liste_villes)-1)]
+    lieuEntretien=liste_lieu_rdv[rd.randint(0,len(liste_lieu_rdv)-1)]
+    fichiers=combien_fichier(id_candidat,dateEntretien)
+    level=rd.randint(1,5)
+    etat=rd.choice(etats)
+    return ({'id':id_candidat,'nom':nom,'prenom':prenom,'dateNaissance':dateNaissance,
+            'lieuNaissance':lieuNaissance,'dateEntretien':dateEntretien,'lieuEntretien':lieuEntretien,
+            'fichiers':fichiers,'etat':etat,'metrics':{'level':level}})
+
+def creation_n_candidats(nombre_candidats):
+    candidats=[]
+    for id_candidat in range(nombre_candidats):
+        candidats.append(creation_candidat(id_candidat))
+    return candidats
+print(creation_n_candidats(nombre_candidats))
