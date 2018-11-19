@@ -1,5 +1,4 @@
 #LIBRARIES
-import json
 import random as rd
 import numpy as np
 import visualizer.db.get_random_date as grd
@@ -11,8 +10,12 @@ nombre_candidats=2
 
 #On formalise l'ecriture des noms et prenoms
 def formalise_nom(nom):
-    nom=nom.replace(' ','')
+    """ Retourne un nom (string) avec la premiere lettre en majuscule
+    :param nom: nom propre
+    :return: (str) un nom normalisé
+    """
     nom=str(nom)
+    nom=nom.replace(' ','')
     maj=nom[0].upper()
     min=nom[1:].lower()
     return(maj+min)
@@ -83,6 +86,12 @@ def test_sum():
     assert ( Ex.sum(a,b)== a+b)"""
 
 def combien_fichier(id_candidat,dateEntretien,nombre_candidats):
+    """ Retourne une liste de dictionnaires représentant les fichiers envoyés par le candidat
+    :param id_candidat: entier représentant un candidat
+    :param dateEntretien: str représentant la date de l'entretien (JJ/MM/AAAA)
+    :param nombre_candidats: entier représentant le nombre de candidats au total
+    :return: (list) une liste de fichier envoyé par le candidats
+    """
     nombre_fichiers=int((np.random.exponential(9,1))//1)
     fichiers=[]
     for num_fichier in range(nombre_fichiers):
@@ -100,6 +109,11 @@ def combien_fichier(id_candidat,dateEntretien,nombre_candidats):
 
 #CHEATING
 def As_tu_copier(id_candidat,nombre_candidats):
+    """ Retourne une liste de dictionnaires représentant les simillarits avec les autres codes
+    :param id_candidat: entier représentant un candidat
+    :param nombre_candidats: entier représentant le nombre de candidats au total
+    :return: (list) une liste de simillarités avec les autres candidats
+    """
     if nombre_candidats==1:
         return []
     else:
@@ -119,6 +133,11 @@ etats=['Postulé','Exercice donné','Code en cours de vérification','Fin de can
 
 #On génère un candidat de façon random
 def creation_candidat(id_candidat,nombre_candidats):
+    """ Retourne un dictionnaires représentant le candidat
+    :param id_candidat: entier représentant un candidat
+    :param nombre_candidats: entier représentant le nombre de candidats au total
+    :return: (dict) un dictionnaire représentant le candidat
+    """
     nom=liste_noms[rd.randint(0,len(liste_noms)-1)]
     prenom=liste_prenoms[rd.randint(0,len(liste_prenoms)-1)]
     dateNaissance,dateEntretien=grd.dates_aleatoires_naissance_entretien()
@@ -132,8 +151,11 @@ def creation_candidat(id_candidat,nombre_candidats):
             'fichiers':fichiers,'etat':etat,'metrics':{'level':level}})
 
 def creation_n_candidats(nombre_candidats):
+    """ Retourne une liste de dictionnaires représentant tous les candidats de la base de données
+    :param nombre_candidats: entier représentant le nombre de candidats au total
+    :return: (list) une liste de dictionnaires pour représenter chaque candidat
+    """
     candidats=[]
     for id_candidat in range(nombre_candidats):
         candidats.append(creation_candidat(id_candidat,nombre_candidats))
     return candidats
-print(creation_n_candidats(nombre_candidats))
