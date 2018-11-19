@@ -22,3 +22,13 @@ Modèle de json:
 
     ]
 }
+
+
+Dash : crée des pages net sur notre pc
+       récupère les données d'un tableau, mais pas d'un python
+
+
+Plan de travail:
+- création d'une DB de candidats automatiquement pour tester notre code
+- création d'une bibliothèque Json qui permette de lire et de modifier les données
+-
