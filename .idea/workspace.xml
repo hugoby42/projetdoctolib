@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="292a69d1-2a65-4b3a-a5e4-ddd17cb8914a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/visualizer/db/candidats/gen_random_date.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dash/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/visualizer/db/candidats/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dash/candidats.json" beforeDir="false" afterPath="$PROJECT_DIR$/visualizer/db/candidats/candidats.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/visualizer/db/gen.py" beforeDir="false" afterPath="$PROJECT_DIR$/visualizer/db/gen.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/visualizer/db/candidats/gen_random_date.py" beforeDir="false" afterPath="$PROJECT_DIR$/visualizer/db/candidats/gen_random_date.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -25,14 +22,14 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="md" value="898" />
-          <entry key="py" value="3369" />
-          <entry key="txt" value="19" />
+          <entry key="py" value="4358" />
+          <entry key="txt" value="59" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="PLAIN_TEXT" value="917" />
-          <entry key="Python" value="3369" />
+          <entry key="PLAIN_TEXT" value="957" />
+          <entry key="Python" value="4358" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -78,11 +75,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/visualizer/db/gen.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="24" selection-start-line="24" selection-end-line="24" />
+            <state relative-caret-position="340">
+              <caret line="20" selection-start-line="20" selection-end-line="20" />
               <folding>
-                <marker date="1542623219374" expanded="true" signature="177:220" ph="..." />
-                <marker date="1542623219374" expanded="true" signature="579:587" ph="..." />
+                <marker date="1542636012371" expanded="true" signature="177:220" ph="..." />
+                <marker date="1542636012371" expanded="true" signature="550:558" ph="..." />
               </folding>
             </state>
           </provider>
@@ -91,11 +88,12 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/visualizer/db/candidats/gen_random_date.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="41" column="39" lean-forward="true" selection-start-line="41" selection-start-column="39" selection-end-line="41" selection-end-column="39" />
+            <state relative-caret-position="918">
+              <caret line="54" column="41" selection-start-line="54" selection-start-column="41" selection-end-line="54" selection-end-column="41" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
-                <marker date="1542635748836" expanded="true" signature="1305:1310" ph="..." />
+                <marker date="1542636914124" expanded="true" signature="1292:1297" ph="..." />
+                <marker date="1542636914124" expanded="true" signature="1844:1849" ph="..." />
               </folding>
             </state>
           </provider>
@@ -214,7 +212,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="392" y="81" width="896" height="561" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.015133876" />
       <window_info id="Structure" order="1" weight="0.25" />
@@ -238,7 +235,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Commit de Clara" />
     <MESSAGE value="Commit de Clara on commence !!" />
-    <option name="LAST_COMMIT_MESSAGE" value="Commit de Clara on commence !!" />
+    <MESSAGE value="    Commit de Clara on a des dates aléatoires !!!" />
+    <option name="LAST_COMMIT_MESSAGE" value="    Commit de Clara on a des dates aléatoires !!!" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/.gitignore">
@@ -257,9 +255,6 @@
     <entry file="file://$PROJECT_DIR$/visualizer/db/candidats/candidats.json">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/visualizer/db/input.json">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/visualizer/db/access.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -273,24 +268,28 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/visualizer/db/input.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/visualizer/db/gen.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="24" selection-start-line="24" selection-end-line="24" />
+        <state relative-caret-position="340">
+          <caret line="20" selection-start-line="20" selection-end-line="20" />
           <folding>
-            <marker date="1542623219374" expanded="true" signature="177:220" ph="..." />
-            <marker date="1542623219374" expanded="true" signature="579:587" ph="..." />
+            <marker date="1542636012371" expanded="true" signature="177:220" ph="..." />
+            <marker date="1542636012371" expanded="true" signature="550:558" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/visualizer/db/candidats/gen_random_date.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="41" column="39" lean-forward="true" selection-start-line="41" selection-start-column="39" selection-end-line="41" selection-end-column="39" />
+        <state relative-caret-position="918">
+          <caret line="54" column="41" selection-start-line="54" selection-start-column="41" selection-end-line="54" selection-end-column="41" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
-            <marker date="1542635748836" expanded="true" signature="1305:1310" ph="..." />
+            <marker date="1542636914124" expanded="true" signature="1292:1297" ph="..." />
+            <marker date="1542636914124" expanded="true" signature="1844:1849" ph="..." />
           </folding>
         </state>
       </provider>
