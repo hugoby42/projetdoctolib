@@ -7,20 +7,43 @@ Dossier qui comprend toutes les données: nom, prénom, date de naissance, forma
 
 
 Modèle de json:
-{
-    "candidat_id" : [
-        {
-            "nom" :
-            "prenom" :
-            "date_de_naissance" :
-            "date_entretien" :
-            "fichiers" :
-                []
-            "statistiques" :
-                []
-        },
-
-    ]
+ {
+ “id”: ,
+ “nom”: ,
+ “prenom”: ,
+ “dateNaissance”: ,
+ “lieuNaissance”: ,
+ “dateEntretien”: ,
+ “lieuEntretien”: ,
+ “fichiers”:
+ [
+   {
+     “id” : ,
+     “nom”: ,
+     “contenu”: ,
+     “nomTest”:,
+     “contenu_Test”: ,
+     “stats”:
+     {
+       “functionsCount”: ,
+       “commentCount”: ,
+       “variableNameQuality”: ,
+       “duplicate”:
+       [
+         {
+           “id”: ,
+           “similarity”: ,
+         }
+       ]
+     }
+     “compteRendu”: ,
+     “dateUpload”: ,
+   }
+ ],
+ “metrics”:
+ {
+   “level”:
+ }
 }
 
 
@@ -31,4 +54,4 @@ Dash : crée des pages net sur notre pc
 Plan de travail:
 - création d'une DB de candidats automatiquement pour tester notre code
 - création d'une bibliothèque Json qui permette de lire et de modifier les données
--
+- passage sur DASH
