@@ -42,7 +42,12 @@ def dates_aleatoires_naissance_entretien():
 suivant la date de l'entretien"""
 
 def date_depot_fichier(date_entretien):
-    jour_entretien = int(date_entretien[:2])
+    jour_entretien_str = ''
+    i = 0
+    while date_entretien[i] != "/" :
+        jour_entretien_str.append(date_entretien[i])
+        i += 1
+    jour_entretien = int(jour_entretien_str)
     jour_depot = random.randint(0,5)
     if jour_entretien+jour_depot <= 30:
         date_depot = str(jour_entretien+jour_depot) + "/09/2018"
