@@ -1,6 +1,12 @@
 import json
 import os
 
+# index :
+# 1. getData
+# 2. prettyPrint
+# 3. update
+# 4. query
+
 
 
 def getData(fileName = "input.json"):
@@ -22,8 +28,12 @@ def getData(fileName = "input.json"):
 def prettyPrint(fileName = "input.json"):
     # Fonction affichant humainement le fichier JSON dans le terminal
     data = getData(fileName)
-
-    print(json.dumps(data, indent=4, sort_keys=False))
+    candidats = json.dumps(data, indent=4, sort_keys=False)
+    
+    print("Voici l'ensemble des candidats en lice :\n\n\n")
+    for c in candidats:
+        print(c)
+        print("\n")
 
 
 
@@ -36,3 +46,8 @@ def update(data = [], fileName = "input.json"):
     with open(fileName, "w") as inputFile: 
         json.dump(data, inputFile, indent=4)
         inputFile.close()
+
+
+
+def query(data = [], test):
+    return [d for d in data if test(d)]
