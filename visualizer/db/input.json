@@ -1,0 +1,120 @@
+{
+  "candidats":
+  [
+  {
+    "id": 1,
+    "nom": 1,
+    "prenom": 1,
+    "dateNaissance": 1,
+    "lieuNaissance": 1,
+    "dateEntretien": 1,
+    "lieuEntretien": 1,
+    "fichiers": 
+    [
+      {
+        "id" : 1,
+        "nom": 1,
+        "contenu": 1,
+        "nomTest": 1,
+        "contenu_Test": 1,
+        "stats":
+        {
+          "functionsCount": 1, 
+          "commentCount": 1,
+          "variableNameQuality": 1,
+          "duplicate":
+          [
+            {
+              "id": 1,
+              "similarity": 1
+            }
+          ]
+        },
+        "compteRendu": 1,
+        "dateUpload": 1
+      }
+    ],
+    "metrics":
+    {
+      "level": 1
+    }
+  },
+{
+    "id": 1,
+    "nom": 1,
+    "prenom": 1,
+    "dateNaissance": 1,
+    "lieuNaissance": 1,
+    "dateEntretien": 1,
+    "lieuEntretien": 1,
+    "fichiers": 
+    [
+      {
+        "id" : 1,
+        "nom": 1,
+        "contenu": 1,
+        "nomTest": 1,
+        "contenu_Test": 1,
+        "stats":
+        {
+          "functionsCount": 1, 
+          "commentCount": 1,
+          "variableNameQuality": 1,
+          "duplicate":
+          [
+            {
+              "id": 1,
+              "similarity": 1
+            }
+          ]
+        },
+        "compteRendu": 1,
+        "dateUpload": 1
+      }
+    ],
+    "metrics":
+    {
+      "level": 1
+    }
+  },
+{
+    "id": 1,
+    "nom": 1,
+    "prenom": 1,
+    "dateNaissance": 1,
+    "lieuNaissance": 1,
+    "dateEntretien": 1,
+    "lieuEntretien": 1,
+    "fichiers": 
+    [
+      {
+        "id" : 1,
+        "nom": 1,
+        "contenu": 1,
+        "nomTest": 1,
+        "contenu_Test": 1,
+        "stats":
+        {
+          "functionsCount": 1, 
+          "commentCount": 1,
+          "variableNameQuality": 1,
+          "duplicate":
+          [
+            {
+              "id": 1,
+              "similarity": 1
+            }
+          ]
+        },
+        "compteRendu": 1,
+        "dateUpload": 1
+      }
+    ],
+    "metrics":
+    {
+      "level": 1
+    }
+  }
+
+  ]
+}
