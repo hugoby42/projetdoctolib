@@ -21,9 +21,6 @@ def creer_database(n): #nombre de candidats dans la database
 
 
 
-def creer_liste_prenoms():
-
-
 
 
 
