@@ -40,8 +40,14 @@ def dates_aleatoires_naissance_entretien():
 
 """on crée une fonction qui crée aléatoirement une date de dépôt de fichiers, comprise dans les 5 jours
 suivant la date de l'entretien"""
+
 def date_depot_fichier(date_entretien):
-    jour_entretien = int(date_entretien[:2])
+    jour_entretien_str = ''
+    i = 0
+    while date_entretien[i] != "/" :
+        jour_entretien_str+=date_entretien[i]
+        i += 1
+    jour_entretien = int(jour_entretien_str)
     jour_depot = random.randint(0,5)
     if jour_entretien+jour_depot <= 30:
         date_depot = str(jour_entretien+jour_depot) + "/09/2018"
@@ -49,5 +55,5 @@ def date_depot_fichier(date_entretien):
         date_depot = str((jour_entretien+jour_depot)%30) + "/10/2018"
     return date_depot
 
-date_entretien = "29/09/2018"
+#date_entretien = "29/09/2018"
 #print(date_depot_fichier(date_entretien))

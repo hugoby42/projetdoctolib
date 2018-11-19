@@ -11,8 +11,8 @@ nombre_candidats=2
 
 #On formalise l'ecriture des noms et prenoms
 def formalise_nom(nom):
-    nom=nom.replace(' ','')
     nom=str(nom)
+    nom=nom.replace(' ','')
     maj=nom[0].upper()
     min=nom[1:].lower()
     return(maj+min)
