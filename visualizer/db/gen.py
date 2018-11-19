@@ -1,5 +1,4 @@
 #LIBRARIES
-import json
 import random as rd
 import numpy as np
 import visualizer.db.get_random_date as grd
@@ -160,4 +159,3 @@ def creation_n_candidats(nombre_candidats):
     for id_candidat in range(nombre_candidats):
         candidats.append(creation_candidat(id_candidat,nombre_candidats))
     return candidats
-print(creation_n_candidats(nombre_candidats))
