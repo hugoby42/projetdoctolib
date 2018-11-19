@@ -1,5 +1,5 @@
 from panels.__common__ import *
 
 layout = html.Div([
-    getHeader("accueilTab")
+    getHeader("erreur404Tab")
     ])

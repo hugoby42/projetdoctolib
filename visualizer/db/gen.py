@@ -2,11 +2,8 @@
 import json
 import random as rd
 import numpy as np
-import visualizer.db.get_random_date as grd
+import get_random_date as grd
 
-
-#On créer des candidats
-nombre_candidats=1
 
 
 #On formalise l'ecriture des noms et prenoms
@@ -17,10 +14,12 @@ def formalise_nom(nom):
     min=nom[1:].lower()
     return(maj+min)
 
+
+
 #On récupère des prénoms
 prenoms=open("prenoms.txt",'r').readlines()
-
 liste_prenoms=[]
+
 for ligne in prenoms:
     ligne=ligne.replace('\n','')#on enlève les retours à la ligne
     lin=[]
@@ -65,22 +64,32 @@ for ville in villes:
     ville=ville[1:-1]#On enlève les doubles guillemets
     liste_villes.append(formalise_nom(ville))
 
+
+
 #Liste de lieux de RDV
 liste_lieu_rdv=['Eiffel','Bouygues','Breguet']
 
 
-##############On créer des fichiers avec des stats
+
+
 nom_fichier_python="exercise.py"
-contenu_python="""
+contenu_python=
+"""
 def sum(a,b):
-    return(a+b)"""
+    return(a+b)
+    """
 nom_fichier_test_python="test_exercise.py"
-contenu_test="""
+
+contenu_test=
+"""
 import pytest
 import exercise.py as Ex
 
 def test_sum():
-    assert ( Ex.sum(a,b)== a+b)"""
+    assert ( Ex.sum(a,b)== a+b)
+"""
+
+
 def combien_fichier(id_candidat,dateEntretien):
     nombre_fichiers=int((np.random.exponential(9,1))//1)
     nombre_fichiers=1
@@ -98,7 +107,9 @@ def combien_fichier(id_candidat,dateEntretien):
         fichiers.append({'id':id,'nom':nom,'contenu':contenu,'nomTest':nomTest,'contenu_Test':contenu_Test,'stats':stats})
     return(fichiers)
 
-#CHEATING
+
+
+#cheating
 def As_tu_copier():
     nombre_similarity=int((np.random.exponential(9,1))//1)#nombre de triches
     similarities=[]
@@ -108,8 +119,11 @@ def As_tu_copier():
         similarities.append({'id':id_candidat,'similarity':contenu_triche})
     return(similarities)
 
+
+
 #Etat de la candidature
 etats=['Postulé','Exercice donné','Code en cours de vérification','Fin de candidature','Refus','Recruté']
+
 
 
 #On génère un candidat de façon random
@@ -126,9 +140,9 @@ def creation_candidat(id_candidat):
             'lieuNaissance':lieuNaissance,'dateEntretien':dateEntretien,'lieuEntretien':lieuEntretien,
             'fichiers':fichiers,'etat':etat,'metrics':{'level':level}})
 
-def creation_n_candidats(nombre_candidats):
+
+def creationCandidats(nombre_candidats):
     candidats=[]
     for id_candidat in range(nombre_candidats):
         candidats.append(creation_candidat(id_candidat))
     return candidats
-print(creation_n_candidats(nombre_candidats))
