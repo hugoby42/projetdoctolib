@@ -6,7 +6,7 @@ import visualizer.db.get_random_date as grd
 
 
 #On créer des candidats
-nombre_candidats=1
+nombre_candidats=2
 
 
 #On formalise l'ecriture des noms et prenoms
@@ -81,9 +81,9 @@ import exercise.py as Ex
 
 def test_sum():
     assert ( Ex.sum(a,b)== a+b)"""
-def combien_fichier(id_candidat,dateEntretien):
+
+def combien_fichier(id_candidat,dateEntretien,nombre_candidats):
     nombre_fichiers=int((np.random.exponential(9,1))//1)
-    nombre_fichiers=1
     fichiers=[]
     for num_fichier in range(nombre_fichiers):
         id=str(id_candidat)+str(num_fichier//100)+str(num_fichier//10)+str(num_fichier//1)
@@ -93,33 +93,38 @@ def combien_fichier(id_candidat,dateEntretien):
         contenu_Test=contenu_test
         dateUpload=grd.date_depot_fichier(dateEntretien)
         stats={"functionsCount": rd.randint(0,100),"commentCount": rd.randint(0,100),
-                "variableNameQuality": rd.random(),"duplicate": As_tu_copier(),
+                "variableNameQuality": rd.random(),"duplicate": As_tu_copier(id_candidat,nombre_candidats),
                 "compteRendu":"Bon code!",'dateUpload' :dateUpload}
         fichiers.append({'id':id,'nom':nom,'contenu':contenu,'nomTest':nomTest,'contenu_Test':contenu_Test,'stats':stats})
     return(fichiers)
 
 #CHEATING
-def As_tu_copier():
-    nombre_similarity=int((np.random.exponential(9,1))//1)#nombre de triches
-    similarities=[]
-    for cheat in range(nombre_similarity):
-        id_candidat=rd.randint(0,nombre_candidats-1)
-        contenu_triche="a+b"
-        similarities.append({'id':id_candidat,'similarity':contenu_triche})
-    return(similarities)
+def As_tu_copier(id_candidat,nombre_candidats):
+    if nombre_candidats==1:
+        return []
+    else:
+        nombre_similarity=int((np.random.exponential(9,1))//1)#nombre de triches
+        similarities=[]
+        for cheat in range(nombre_similarity):
+            id_candidat_triche=rd.randint(0,nombre_candidats-2)
+            if id_candidat_triche>=id_candidat:
+                id_candidat_triche+=1
+            contenu_triche="a+b"
+            similarities.append({'id':id_candidat_triche,'similarity':contenu_triche})
+        return(similarities)
 
 #Etat de la candidature
 etats=['Postulé','Exercice donné','Code en cours de vérification','Fin de candidature','Refus','Recruté']
 
 
 #On génère un candidat de façon random
-def creation_candidat(id_candidat):
+def creation_candidat(id_candidat,nombre_candidats):
     nom=liste_noms[rd.randint(0,len(liste_noms)-1)]
     prenom=liste_prenoms[rd.randint(0,len(liste_prenoms)-1)]
     dateNaissance,dateEntretien=grd.dates_aleatoires_naissance_entretien()
     lieuNaissance=liste_villes[rd.randint(0,len(liste_villes)-1)]
     lieuEntretien=liste_lieu_rdv[rd.randint(0,len(liste_lieu_rdv)-1)]
-    fichiers=combien_fichier(id_candidat,dateEntretien)
+    fichiers=combien_fichier(id_candidat,dateEntretien,nombre_candidats)
     level=rd.randint(1,5)
     etat=rd.choice(etats)
     return ({'id':id_candidat,'nom':nom,'prenom':prenom,'dateNaissance':dateNaissance,
@@ -129,6 +134,6 @@ def creation_candidat(id_candidat):
 def creation_n_candidats(nombre_candidats):
     candidats=[]
     for id_candidat in range(nombre_candidats):
-        candidats.append(creation_candidat(id_candidat))
+        candidats.append(creation_candidat(id_candidat,nombre_candidats))
     return candidats
 print(creation_n_candidats(nombre_candidats))
