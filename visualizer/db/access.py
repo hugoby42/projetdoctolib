@@ -64,10 +64,13 @@ def query(data,selection):
             list_values=critere[1]
 
             #on projete la valeur du dictionnaire du candidat qui nous interesse
+
             dict=dict_candidate
             nb_level=len(key)
             for i in range(nb_level-1):
                 sous_liste=dict[key[i]]
+                if sous_liste==[]:
+                    return False
                 dict=sous_liste[0]      #dict doit être un dictionnaire
 
             #on vérifie que la clé est bien dans les valeurs demandées
