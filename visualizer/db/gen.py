@@ -1,10 +1,11 @@
 #LIBRARIES
 import random as rd
 import numpy as np
-import visualizer.db.get_random_date as grd
-import os
+import db.get_random_date as grd
 
 
+#On créer des candidats
+nombre_candidats=2
 
 
 #On formalise l'ecriture des noms et prenoms
@@ -20,8 +21,7 @@ def formalise_nom(nom):
     return(maj+min)
 
 #On récupère des prénoms
-os.chdir('/Users/camille/PycharmProjects/Doctolib/visualizer/db')
-prenoms=open("prenoms.txt",'r').readlines()
+prenoms=open("db/prenoms.txt",'r').readlines()
 
 liste_prenoms=[]
 for ligne in prenoms:
@@ -41,7 +41,7 @@ for ligne in prenoms:
 
 
 #On récupère des noms
-noms=open("noms.txt",'r').readlines()
+noms=open("db/noms.txt",'r').readlines()
 liste_noms=[]
 for ligne in noms:
     car=0
@@ -52,7 +52,7 @@ for ligne in noms:
 
 
 #On rècupère une liste de villes
-villes=open("villes_france.csv", "r").readlines()
+villes=open("db/villes_france.csv", "r").readlines()
 liste_villes=[]
 for ville in villes:
     rang_premiere_virgule=0
@@ -150,7 +150,7 @@ def creation_candidat(id_candidat,nombre_candidats):
             'lieuNaissance':lieuNaissance,'dateEntretien':dateEntretien,'lieuEntretien':lieuEntretien,
             'fichiers':fichiers,'etat':etat,'metrics':{'level':level}})
 
-def main(nombre_candidats):
+def creation_n_candidats(nombre_candidats):
     """ Retourne une liste de dictionnaires représentant tous les candidats de la base de données
     :param nombre_candidats: entier représentant le nombre de candidats au total
     :return: (list) une liste de dictionnaires pour représenter chaque candidat
@@ -158,5 +158,4 @@ def main(nombre_candidats):
     candidats=[]
     for id_candidat in range(nombre_candidats):
         candidats.append(creation_candidat(id_candidat,nombre_candidats))
-    return {'candidats': candidats}
-
+    return candidats
