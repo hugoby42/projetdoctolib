@@ -1,12 +1,12 @@
 #LIBRARIES
 import random as rd
 import numpy as np
-import get_random_date as grd
-
+import visualizer.db.get_random_date as grd
 
 
 #On créer des candidats
 nombre_candidats=2
+
 
 #On formalise l'ecriture des noms et prenoms
 def formalise_nom(nom):
@@ -20,12 +20,10 @@ def formalise_nom(nom):
     min=nom[1:].lower()
     return(maj+min)
 
-
-
 #On récupère des prénoms
 prenoms=open("prenoms.txt",'r').readlines()
-liste_prenoms=[]
 
+liste_prenoms=[]
 for ligne in prenoms:
     ligne=ligne.replace('\n','')#on enlève les retours à la ligne
     lin=[]
@@ -70,34 +68,22 @@ for ville in villes:
     ville=ville[1:-1]#On enlève les doubles guillemets
     liste_villes.append(formalise_nom(ville))
 
-
-
 #Liste de lieux de RDV
-liste_lieu_rdv=['Eiffel','Bouygues','Breguet', 'Massy', 'Palaiseau', 'Orsay', 'Gif', 'Paris']
+liste_lieu_rdv=['Eiffel','Bouygues','Breguet']
 
 
-
+##############On créer des fichiers avec des stats
 nom_fichier_python="exercise.py"
-contenu_python=
-"""
-
+contenu_python="""
 def sum(a,b):
-    return(a+b)
-
-"""
-
+    return(a+b)"""
 nom_fichier_test_python="test_exercise.py"
-contenu_test=
-"""
-
+contenu_test="""
 import pytest
 import exercise.py as Ex
 
 def test_sum():
-
-    assert ( Ex.sum(a,b)== a+b)
-
-"""
+    assert ( Ex.sum(a,b)== a+b)"""
 
 def combien_fichier(id_candidat,dateEntretien,nombre_candidats):
     """ Retourne une liste de dictionnaires représentant les fichiers envoyés par le candidat
@@ -141,11 +127,8 @@ def As_tu_copier(id_candidat,nombre_candidats):
             similarities.append({'id':id_candidat_triche,'similarity':contenu_triche})
         return(similarities)
 
-
-
 #Etat de la candidature
 etats=['Postulé','Exercice donné','Code en cours de vérification','Fin de candidature','Refus','Recruté']
-
 
 
 #On génère un candidat de façon random
