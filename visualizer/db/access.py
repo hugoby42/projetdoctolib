@@ -49,13 +49,13 @@ def update(data = [], fileName = "input.json"):
 
 
 
-def query(data,selection): # A faire: vérification des type #on part du principe qu'il n'y a qu'une seule 'selection' pour l'instatnt
+def query(data,selection):
 
 # forme de la liste selection : [  [  [liste key, liste valeurs possibles] , [
 
 
     #fonction de selection
-    def test(dict_candidate): #problème : un seul truc possible, donc si on doit faire plusieurs selection, il faudra faire plusieurs test ^^
+    def test(dict_candidate):
 
         for critere in selection:
 
@@ -70,14 +70,14 @@ def query(data,selection): # A faire: vérification des type #on part du princip
                 sous_liste=dict[key[i]]
                 dict=sous_liste[0]      #dict doit être un dictionnaire
 
-            #on vérifie que la clé est bien vérifiée
+            #on vérifie que la clé est bien dans les valeurs demandées
             if dict[key[nb_level-1]] not in list_values:
                 return False
 
         return True
 
 
-    selection_candidates=filter(test,data)
+    selection_candidates=list(filter(test,data))
 
     #liste ds values qui nous interessent
     list_values=[]
