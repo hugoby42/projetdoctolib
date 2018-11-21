@@ -1,5 +1,6 @@
 DESCIPTION DU RETOUR DE GEN.PY
-
+{
+ “candidats”:
  [
  {
    “id”: int,#commence à 0 jusqu'à nombre_candidats
@@ -41,4 +42,5 @@ DESCIPTION DU RETOUR DE GEN.PY
    }
  }
  ]
+}
 
