@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="292a69d1-2a65-4b3a-a5e4-ddd17cb8914a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/visualizer/app/dash_tuto/Dash_tuto1.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/visualizer/app/dash_tuto/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/visualizer/app/dash_tuto/Dash_tuto1.py" beforeDir="false" afterPath="$PROJECT_DIR$/visualizer/app/dash_tuto/Dash_tuto1.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -26,14 +25,14 @@
         <counts>
           <entry key="csv" value="2" />
           <entry key="md" value="898" />
-          <entry key="py" value="10875" />
-          <entry key="txt" value="131" />
+          <entry key="py" value="11264" />
+          <entry key="txt" value="169" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="PLAIN_TEXT" value="1031" />
-          <entry key="Python" value="10875" />
+          <entry key="PLAIN_TEXT" value="1069" />
+          <entry key="Python" value="11264" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -41,7 +40,7 @@
           <entry key="csv" value="1" />
           <entry key="gitignore" value="1" />
           <entry key="json" value="2" />
-          <entry key="py" value="10" />
+          <entry key="py" value="11" />
           <entry key="yml" value="1" />
         </counts>
       </usages-collector>
@@ -49,7 +48,7 @@
         <counts>
           <entry key="JSON" value="2" />
           <entry key="PLAIN_TEXT" value="3" />
-          <entry key="Python" value="10" />
+          <entry key="Python" value="11" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages">
@@ -60,20 +59,7 @@
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/visualizer/app/dash_tuto/Dash_tuto1.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="21" column="26" selection-start-line="21" selection-start-column="26" selection-end-line="21" selection-end-column="26" />
-              <folding>
-                <element signature="e#0#11#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -98,6 +84,7 @@
         <option value="$PROJECT_DIR$/visualizer/db/candidats/gen_random_date.py" />
         <option value="$PROJECT_DIR$/visualizer/app/dash tuto/Dash_tuto1.py" />
         <option value="$PROJECT_DIR$/visualizer/app/dash_tuto/Dash_tuto1.py" />
+        <option value="$PROJECT_DIR$/visualizer/app/dash_tuto/fonction_Hugo.py" />
       </list>
     </option>
   </component>
@@ -129,6 +116,13 @@
               <item name="projetdoctolib" type="462c0819:PsiDirectoryNode" />
               <item name="visualizer" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="projetdoctolib" type="b2602c69:ProjectViewProjectNode" />
+              <item name="projetdoctolib" type="462c0819:PsiDirectoryNode" />
+              <item name="visualizer" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="dash_tuto" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -278,14 +272,13 @@
     </history-entry>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1295" height="695" extended-state="7" />
-    <editor active="true" />
+    <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.0" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.28219396" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.44500846" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.44500846" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -306,7 +299,8 @@
     <MESSAGE value="    Commit de Clara on a des dates aléatoires !!!" />
     <MESSAGE value="Commit de Clara on a des dates aléatoires qui marchent !!!" />
     <MESSAGE value="Commit de Clara on a des dates aléatoires qui marchent et c'est le dernier de la journée !!!" />
-    <option name="LAST_COMMIT_MESSAGE" value="Commit de Clara on a des dates aléatoires qui marchent et c'est le dernier de la journée !!!" />
+    <MESSAGE value="Commit de Clara, tuto Dash very funny" />
+    <option name="LAST_COMMIT_MESSAGE" value="Commit de Clara, tuto Dash very funny" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/Dash/candidats.json.py" />
@@ -385,13 +379,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/visualizer/app/dash_tuto/Dash_tuto1.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="21" column="26" selection-start-line="21" selection-start-column="26" selection-end-line="21" selection-end-column="26" />
+        <state relative-caret-position="1275">
+          <caret line="75" column="13" selection-start-line="75" selection-start-column="13" selection-end-line="75" selection-end-column="13" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
           </folding>
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/visualizer/app/dash_tuto/fonction_Hugo.py">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
   </component>
 </project>

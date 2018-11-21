@@ -2,14 +2,35 @@ import dash
 import dash_html_components as htlm
 import dash_core_components as dcc
 
-external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
+#external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 
-app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
+#app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
+app = dash.Dash(__name__)
+
+colors = {
+    'background': '#111111',
+    'text': '#7FDBFF'
+}
 
 app.layout = htlm.Div(
+    style = {
+        'backgroundColor': colors['background']
+    },
     children=[
-        htlm.H1('Hello Dash'),
-        htlm.H2('What a beautiful day'),
+        htlm.H1(
+            children = 'Hello Dash',
+            style = {
+                'textAlign': 'center',
+                'color': colors['text']
+            }
+        ),
+        htlm.H2(
+            children='What a beautiful day',
+            style = {
+                'textAlign': 'center',
+                'color': colors['text']
+            }
+        ),
         htlm.Div(
             children =[
                 'Je suis un gland',
@@ -26,7 +47,11 @@ app.layout = htlm.Div(
 
                     }
                 )
-            ]
+            ],
+            style = {
+                'textAlign': 'center',
+                'color': colors['text']
+            }
         ),
         htlm.Div(
             children =[
@@ -44,7 +69,11 @@ app.layout = htlm.Div(
 
                     }
                 )
-            ]
+            ],
+            style = {
+                'textAlign': 'center',
+                'color': colors['text']
+            }
         )
 
 
