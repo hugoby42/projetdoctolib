@@ -9,7 +9,7 @@ import plotly.plotly as py
 
 from plotly import graph_objs as go
 from dash.dependencies import Input, Output, State
-from panels import candidat, login, main, management, erreur404, postuler, statistiques
+from visualizer.app.panels import candidat, login, main, management, erreur404, postuler, statistiques
 from app import *
 
 

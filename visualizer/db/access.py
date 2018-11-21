@@ -29,10 +29,10 @@ def prettyPrint(fileName = "input.json"):
     # Fonction affichant humainement le fichier JSON dans le terminal
     data = getData(fileName)
     candidats = json.dumps(data, indent=4, sort_keys=False)
-    candidats=data[0]
+
     print("Voici l'ensemble des candidats en lice :\n\n\n")
     for c in candidats:
-        print(c,':',candidats[c])
+        print(c)
         print("\n")
 
 
