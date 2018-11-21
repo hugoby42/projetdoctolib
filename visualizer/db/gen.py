@@ -2,7 +2,7 @@
 import random as rd
 import numpy as np
 import visualizer.db.get_random_date as grd
-
+import os
 
 #On créer des candidats
 nombre_candidats=2
@@ -21,6 +21,7 @@ def formalise_nom(nom):
     return(maj+min)
 
 #On récupère des prénoms
+os.chdir('/Users/camille/PycharmProjects/Doctolib/visualizer/db')
 prenoms=open("prenoms.txt",'r').readlines()
 
 liste_prenoms=[]
@@ -150,7 +151,7 @@ def creation_candidat(id_candidat,nombre_candidats):
             'lieuNaissance':lieuNaissance,'dateEntretien':dateEntretien,'lieuEntretien':lieuEntretien,
             'fichiers':fichiers,'etat':etat,'metrics':{'level':level}})
 
-def creation_n_candidats(nombre_candidats):
+def main(nombre_candidats):
     """ Retourne une liste de dictionnaires représentant tous les candidats de la base de données
     :param nombre_candidats: entier représentant le nombre de candidats au total
     :return: (list) une liste de dictionnaires pour représenter chaque candidat
@@ -159,3 +160,4 @@ def creation_n_candidats(nombre_candidats):
     for id_candidat in range(nombre_candidats):
         candidats.append(creation_candidat(id_candidat,nombre_candidats))
     return candidats
+

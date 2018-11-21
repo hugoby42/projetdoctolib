@@ -16,12 +16,10 @@ def getData(fileName = "input.json"):
     with open(fileName, "r+") as inputFile:
         inputStr = inputFile.read()
         inputData = json.loads(inputStr)
-    
-        data = inputData["candidats"]
 
         inputFile.close()
 
-        return data
+        return inputData
 
 
 
