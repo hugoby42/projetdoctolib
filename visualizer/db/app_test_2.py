@@ -5,7 +5,7 @@ import dash_html_components as html
 from access import getData
 
 data=getData()
-print(data)
+
 nb_candidats_dans_etat=[0,0]
 for i in data:
     if i['fichiers']==[]:
@@ -47,12 +47,12 @@ def generate_table(dataframe):
 
         # Body
         [html.Tr([
-            html.Td(dataframe[i][col]) for col in dataframe[0].keys()
+            html.Td(str(dataframe[i][col])) for col in dataframe[0].keys()
         ]) for i in range(len(dataframe))]
     )
 
-generate_table(data)
-"""
+
+
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 
 app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
@@ -64,6 +64,5 @@ app.layout = html.Div(children=[
 
 if __name__ == '__main__':
     app.run_server(debug=True)
-"""
 
 

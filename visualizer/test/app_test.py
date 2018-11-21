@@ -20,8 +20,8 @@ def generate_table(dataframe, max_rows=10):
             html.Td(dataframe.iloc[i][col]) for col in dataframe.columns
         ]) for i in range(min(len(dataframe), max_rows))]
     )
-
-
+print(generate_table(df))
+"""
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 
 app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
@@ -33,3 +33,4 @@ app.layout = html.Div(children=[
 
 if __name__ == '__main__':
     app.run_server(debug=True)
+"""
