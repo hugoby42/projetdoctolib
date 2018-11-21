@@ -158,5 +158,5 @@ def main(nombre_candidats):
     candidats=[]
     for id_candidat in range(nombre_candidats):
         candidats.append(creation_candidat(id_candidat,nombre_candidats))
-    return {'candidat': candidats}
+    return {'candidats': candidats}
 
