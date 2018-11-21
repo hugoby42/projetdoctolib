@@ -9,35 +9,31 @@ import os
 
 
 
-def getData(fileName = "input.json"):
+def getData(fileName = "db/input.json"):
     # Fonction ouvrant le fichier JSON contenant la liste 
     # des candidats et renvoyant une liste de dictionnaires, 
     # chacun contenant les informations relatives à un candidat
     with open(fileName, "r+") as inputFile:
         inputStr = inputFile.read()
         inputData = json.loads(inputStr)
-    
-        data = inputData["candidats"]
 
         inputFile.close()
 
-        return data
+        return inputData
 
 
 
-def prettyPrint(fileName = "input.json"):
+def prettyPrint(fileName = "db/input.json"):
     # Fonction affichant humainement le fichier JSON dans le terminal
     data = getData(fileName)
     candidats = json.dumps(data, indent=4, sort_keys=False)
     
     print("Voici l'ensemble des candidats en lice :\n\n\n")
-    for c in candidats:
-        print(c)
-        print("\n")
+    print(candidats)
 
 
 
-def update(data = [], fileName = "input.json"):
+def update(data = [], fileName = "db/input.json"):
     # Après de multiples modifications sur la variable data 
     # contenant l'équivalent du fichier JSON, cette fonction 
     # met à jour les modifications en les enregistrant dans le fichier JSON en question
@@ -109,8 +105,6 @@ def query(data,selection):
     return selection_candidates, list_values
 
 
-#test
-
-selection=[[['id'],[1]],[['fichiers','id'],[1]]]
+"""selection=[[['id'],[1]],[['fichiers','id'],[1]]]
 data = getData()
-list_candidat, list_values = query(data,selection)
+list_candidat, list_values = query(data,selection)"""

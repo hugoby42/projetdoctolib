@@ -1,7 +1,7 @@
 #LIBRARIES
 import random as rd
 import numpy as np
-import visualizer.db.get_random_date as grd
+import db.get_random_date as grd
 
 
 #On créer des candidats
@@ -21,7 +21,7 @@ def formalise_nom(nom):
     return(maj+min)
 
 #On récupère des prénoms
-prenoms=open("prenoms.txt",'r').readlines()
+prenoms=open("db/prenoms.txt",'r').readlines()
 
 liste_prenoms=[]
 for ligne in prenoms:
@@ -41,7 +41,7 @@ for ligne in prenoms:
 
 
 #On récupère des noms
-noms=open("noms.txt",'r').readlines()
+noms=open("db/noms.txt",'r').readlines()
 liste_noms=[]
 for ligne in noms:
     car=0
@@ -52,7 +52,7 @@ for ligne in noms:
 
 
 #On rècupère une liste de villes
-villes=open("villes_france.csv", "r").readlines()
+villes=open("db/villes_france.csv", "r").readlines()
 liste_villes=[]
 for ville in villes:
     rang_premiere_virgule=0
