@@ -2,13 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="292a69d1-2a65-4b3a-a5e4-ddd17cb8914a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/visualizer/app/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/visualizer/app/dash_tuto/Dash_tuto1.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/visualizer/app/dash_tuto/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_config.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/creation_fichier_json.py" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -30,14 +26,14 @@
         <counts>
           <entry key="csv" value="2" />
           <entry key="md" value="898" />
-          <entry key="py" value="8506" />
+          <entry key="py" value="10875" />
           <entry key="txt" value="131" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="1031" />
-          <entry key="Python" value="8506" />
+          <entry key="Python" value="10875" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -45,7 +41,7 @@
           <entry key="csv" value="1" />
           <entry key="gitignore" value="1" />
           <entry key="json" value="2" />
-          <entry key="py" value="9" />
+          <entry key="py" value="10" />
           <entry key="yml" value="1" />
         </counts>
       </usages-collector>
@@ -53,13 +49,31 @@
         <counts>
           <entry key="JSON" value="2" />
           <entry key="PLAIN_TEXT" value="3" />
-          <entry key="Python" value="9" />
+          <entry key="Python" value="10" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.vcs.git.usages">
+        <counts>
+          <entry key="git.branch.merge" value="2" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/visualizer/app/dash_tuto/Dash_tuto1.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="153">
+              <caret line="21" column="26" selection-start-line="21" selection-start-column="26" selection-end-line="21" selection-end-column="26" />
+              <folding>
+                <element signature="e#0#11#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -82,13 +96,15 @@
         <option value="$PROJECT_DIR$/visualizer/db/gen.py" />
         <option value="$PROJECT_DIR$/visualizer/db/candidats/gen_random_date_test.py" />
         <option value="$PROJECT_DIR$/visualizer/db/candidats/gen_random_date.py" />
+        <option value="$PROJECT_DIR$/visualizer/app/dash tuto/Dash_tuto1.py" />
+        <option value="$PROJECT_DIR$/visualizer/app/dash_tuto/Dash_tuto1.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="588" />
-    <option name="y" value="120" />
-    <option name="width" value="1344" />
+    <option name="x" value="885" />
+    <option name="y" value="249" />
+    <option name="width" value="828" />
     <option name="height" value="843" />
   </component>
   <component name="ProjectView">
@@ -107,6 +123,12 @@
               <item name="projetdoctolib" type="b2602c69:ProjectViewProjectNode" />
               <item name="projetdoctolib" type="462c0819:PsiDirectoryNode" />
               <item name="visualizer" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="projetdoctolib" type="b2602c69:ProjectViewProjectNode" />
+              <item name="projetdoctolib" type="462c0819:PsiDirectoryNode" />
+              <item name="visualizer" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -136,7 +158,28 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.gen_random_date">
+  <component name="RunManager" selected="Python.Dash_tuto1">
+    <configuration name="Dash_tuto1" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="projetdoctolib" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/visualizer/app/dash_tuto" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/visualizer/app/dash_tuto/Dash_tuto1.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="gen_random_date" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="projetdoctolib" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -150,27 +193,6 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/visualizer/db/candidats/gen_random_date.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="gen_random_identity" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="projetdoctolib" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/visualizer/db/candidats" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/visualizer/db/candidats/gen_random_identity.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -226,18 +248,18 @@
     </configuration>
     <list>
       <item itemvalue="Python.gen_random_date" />
-      <item itemvalue="Python.gen_random_identity" />
       <item itemvalue="Python tests.pytest for gen_random_date_test.test_date_depot_fichier" />
       <item itemvalue="Python tests.pytest in gen_random_date_test.py" />
       <item itemvalue="Python tests.pytest for gen_random_date_test.test_dates_aleatoires_naissance_entretien" />
+      <item itemvalue="Python.Dash_tuto1" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.Dash_tuto1" />
         <item itemvalue="Python.gen_random_date" />
         <item itemvalue="Python tests.pytest for gen_random_date_test.test_dates_aleatoires_naissance_entretien" />
         <item itemvalue="Python tests.pytest in gen_random_date_test.py" />
         <item itemvalue="Python tests.pytest for gen_random_date_test.test_date_depot_fichier" />
-        <item itemvalue="Python.gen_random_identity" />
       </list>
     </recent_temporary>
   </component>
@@ -256,13 +278,14 @@
     </history-entry>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
+    <frame x="-7" y="-7" width="1295" height="695" extended-state="7" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21780604" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.0" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.43654823" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.44500846" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -357,6 +380,16 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
           <caret line="3" column="24" selection-start-line="3" selection-start-column="24" selection-end-line="3" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/visualizer/app/dash_tuto/Dash_tuto1.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="21" column="26" selection-start-line="21" selection-start-column="26" selection-end-line="21" selection-end-column="26" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
