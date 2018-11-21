@@ -1,4 +1,8 @@
-from panels.__common__ import *
+from visualizer.app.panels.__common__ import *
+from visualizer.db.access import getData
 
-layout = html.Div([
-    ])
+data = getData()
+
+print(data)
+
+#layout = html.Div()

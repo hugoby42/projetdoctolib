@@ -1,5 +1,5 @@
 
-from app import *
+from visualizer.app import *
 
 # Fonction principale assurant les différentes étapes du lancement de l'application
 

@@ -5,9 +5,9 @@ import math as m
 import pandas as pd
 import flask as fl
 import plotly.plotly as py
-import panels.auth
+import visualizer.app.panels.auth
 
 from plotly import graph_objs as go
 from dash.dependencies import Input, Output, State
-from app import *
+from visualizer.app import *
 

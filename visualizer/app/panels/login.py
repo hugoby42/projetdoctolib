@@ -1,4 +1,4 @@
-from panels.__common__ import *
+from visualizer.app.panels.__common__ import *
 
 layout = html.Div([
     html.Div([
@@ -7,6 +7,7 @@ layout = html.Div([
         html.Button('Submit', id='connexion')
        ], id = "main"),
     ])
+
 """
 @app.callback(dash.dependencies.Output('page-content', 'children'),
     [dash.dependencies.Input('button', 'n_clicks')],

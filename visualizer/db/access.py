@@ -1,5 +1,6 @@
 import json
 import os
+from
 
 # index :
 # 1. getData
@@ -7,6 +8,7 @@ import os
 # 3. update
 # 4. query
 
+input_json =
 
 
 def getData(fileName = "input.json"):
