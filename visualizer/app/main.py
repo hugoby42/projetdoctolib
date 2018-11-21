@@ -8,12 +8,9 @@ import flask as fl
 import plotly.plotly as py
 
 from plotly import graph_objs as go
-from dash.dependencies import Input, Output
+from dash.dependencies import Input, Output, State
 from panels import candidat, login, main, management, erreur404, postuler, statistiques
-
-
-
-logged = False
+from app import *
 
 
 
@@ -33,26 +30,95 @@ app.layout = html.Div([
 
 
 
+def getHeader():
+    header = html.Div(
+            [
+# header
+            html.Div([
+                html.Span([html.I("school", className="material-icons md-light", style={"verticalAlign":"middle"}), " Interface de Recrutement - Doctolib H.R."], className='app-title'),
+
+                html.Div(
+                    html.Img(src='https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Logo-doctolib-bleu-tr_%28crop%29.png/640px-Logo-doctolib-bleu-tr_%28crop%29.png',height="100%")
+                    ,style={"float":"right","height":"100%"})
+            ],
+            className="row header"
+            ),
+
+
+            html.Div([
+                dcc.Tabs(
+                    id="tabs",
+                    style={"height":"20","verticalAlign":"top"},
+                    children=[
+                    dcc.Tab(label="Accueil", value="accueil"),
+                    dcc.Tab(label="Management", value="management"),
+                    dcc.Tab(label="Candidat", value="candidat"),
+                    dcc.Tab(label="Statistiques", value="statistiques"),
+
+                    dcc.Tab(label="Se Déconnecter", value="seDeconnecter"),
+
+                    ],
+                    value="neutre",
+                    )
+            ],
+            className="row tabs_div"
+            ),
+
+
+
+# Tab content
+            html.Div(id="corps", className="row", style={"margin": "2% 3%"}),
+
+            html.Link(href="https://use.fontawesome.com/releases/v5.2.0/css/all.css",rel="stylesheet"),
+            html.Link(href="https://cdn.rawgit.com/plotly/dash-app-stylesheets/2d266c578d2a6e8850ebce48fdb52759b2aef506/stylesheet-oil-and-gas.css",rel="stylesheet"),
+            html.Link(href="https://fonts.googleapis.com/css?family=Dosis", rel="stylesheet"),
+            html.Link(href="https://fonts.googleapis.com/css?family=Open+Sans", rel="stylesheet"),
+            html.Link(href="https://fonts.googleapis.com/css?family=Ubuntu", rel="stylesheet"),
+            html.Link(href="https://cdn.rawgit.com/amadoukane96/8a8cfdac5d2cecad866952c52a70a50e/raw/cd5a9bf0b30856f4fc7e3812162c74bfc0ebe011/dash_crm.css", rel="stylesheet")
+            ,
+            html.Link(href="https://fonts.googleapis.com/icon?family=Material+Icons", rel="stylesheet")
+            ],
+            className="row",
+            style={"margin": "0%"}
+            )
+    return header
+
+
+
 def launch():
     # Fonction permettant de lancer la webapp Dash multipages
     app.run_server(debug=True, port=4242)
 
 
 
-@app.callback(dash.dependencies.Output('page-content', 'children'),
-              [dash.dependencies.Input('url', 'pathname')])
-def afficherPage(pathname):
+app.layout = getHeader()
+
+
+
+@app.callback(Output('corps', 'children'),
+              [Input('tabs', 'value')])
+def afficherPage(tab):
     # Permet de switcher entre chaque page de la webapp
+    
+    if tab == "seDeconnecter":
+        confirm = dcc.ConfirmDialog(
+                id='confirm',
+                message="Attention. Vous allez être déconnecté de l'Interface de Recrutement Doctolib"
+                )
 
-    if not logged:
-        return login.layout
+    pathname = "/" + tab
 
-    elif pathname == '/login':
+
+    """if not logged:
+        return login.layout"""
+
+    if pathname == '/login':
         # Page de login, nécessaire pour accéder à l'interface recruteur
         return login.layout
 
     elif pathname in ["/", "/accueil", "/index", "/main"]:
         # Page d'accueil (main)
+        print("topito")
         return main.layout
 
     elif pathname.startswith("/candidat/"):
@@ -62,7 +128,7 @@ def afficherPage(pathname):
     elif pathname == "/management":
         # Page permettant d'afficher la liste des candidats, et de les
         # filtrer selon des critères choisis par l'utilisateur
-        return manage.layout
+        return management.layout
 
     elif pathname == "/postuler":
         # Page permettant au candidat de déposer son dossier
@@ -75,41 +141,6 @@ def afficherPage(pathname):
     else:
         # Page d'erreur (URL non résolue)
         return erreur404.layout
-
-
-@app.callback(Output("tab_content", "children"), [Input("tabs", "value")])
-def changerPage(tab):
-    # Fonction permettant de changer de page lorsque l'utilisateur clique sur un tab (un des boutons du header)
-    if tab == "seDeconnecter":
-        confirm = dcc.ConfirmDialog(
-                id='confirm',
-                message="Attention. Vous allez être déconnecté de l'Interface de Recrutement Doctolib"
-                )
-
-    pathname = "/" + tab
-    afficherPage(pathname)
-
-
-
-@app.callback(dash.dependencies.Output('page-content', 'children'),
-    [dash.dependencies.Input('button', 'n_clicks')],
-    [dash.dependencies.State('login', 'login'), dash.dependencies.State('password', 'password')])
-def connecter(login, password):
-    # Fonction réalisant l'authentification de l'utilisateur sur la plateforme
-    global logged
-
-    if auth.verify(login, password): # Si la connexion est réussie
-        logged = True
-        confirm = dcc.ConfirmDialog(
-                id='confirm',
-                message="Félicitations. Vous vous êtes connecté avec succès.")
-        changerPage("accueil")
-
-    logged = False # Si la connexion échoue
-    confirm = dcc.ConfirmDialog(
-                id='confirm',
-                message="Couple login / password invalide.")
-    changerPage("login")
 
 
 
