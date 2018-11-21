@@ -6,10 +6,19 @@ import os
 # 2. prettyPrint
 # 3. update
 # 4. query
+#Trouver fichier json
+directory=os.getcwd()
+if directory[len(directory)-10:]=='visualizer':
+    os.chdir('./db')
+elif directory[len(directory)-3:]=='app':
+    os.chdir('../')
+    os.chdir('.db')
+elif directory[len(directory)-6:]=='panels':
+    os.chdir('../../')
+    os.chdir('./db')
 
 
-
-def getData(fileName = "db/input.json"):
+def getData(fileName = "input.json"):
     # Fonction ouvrant le fichier JSON contenant la liste 
     # des candidats et renvoyant une liste de dictionnaires, 
     # chacun contenant les informations relatives à un candidat
