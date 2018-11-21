@@ -4,8 +4,7 @@ import numpy as np
 import visualizer.db.get_random_date as grd
 import os
 
-#On créer des candidats
-nombre_candidats=2
+
 
 
 #On formalise l'ecriture des noms et prenoms
