@@ -1,8 +1,9 @@
 from visualizer.app.panels.__common__ import *
 import visualizer.db.access as access
 import os
+from visualizer.app.panels.management import get_id_candidat
 #le candidat conserné
-id_candidat=25
+id_candidat=get_id_candidat()
 #importer les données du candidat
 data=access.getData()
 data_candidat=data[id_candidat]

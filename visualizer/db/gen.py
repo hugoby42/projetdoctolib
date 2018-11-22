@@ -95,7 +95,12 @@ def combien_fichier(id_candidat,dateEntretien,nombre_candidats):
     nombre_fichiers=int((np.random.exponential(9,1))//1)
     fichiers=[]
     for num_fichier in range(nombre_fichiers):
-        id=str(id_candidat)+str(num_fichier//100)+str(num_fichier//10)+str(num_fichier//1)
+        if num_fichier//100==0 and num_fichier//10==0:
+            id=str(id_candidat)+str(num_fichier//100)+str(num_fichier//10)+str(num_fichier//1)
+        elif num_fichier//100==0 and num_fichier//10!=0:
+            id=str(id_candidat)+str(num_fichier//100)+str(num_fichier//1)
+        else :
+            id=str(id_candidat)+str(num_fichier//1)
         nom=nom_fichier_python
         contenu=contenu_python
         nomTest=nom_fichier_test_python
