@@ -2,7 +2,7 @@ from visualizer.app.panels.__common__ import *
 import visualizer.db.access as access
 import os
 #le candidat conserné
-id_candidat=25
+id_candidat=77
 #importer les données du candidat
 data=access.getData()
 data_candidat=data[id_candidat]
@@ -126,7 +126,6 @@ layout = html.Div([  # page 1
                 html.H6(["Candidature pour Doctolib"],
                         className="gs-header gs-table-header padded"),
                 html.P(id='etat-content',children=['Etat : ' + data_candidat['etat']]),
-                html.Br(),
                 html.P('Niveau du candidat : ' + niveau_candidat(data_candidat)),
             ],className="six columns"),
             html.Div(style={'marginTop' : '10',
