@@ -17,7 +17,7 @@ def getData(fileName = "input.json"):
         inputStr = inputFile.read()
         inputData = json.loads(inputStr)
     
-        data = inputData["candidats"]
+        data = inputData
 
         inputFile.close()
 
