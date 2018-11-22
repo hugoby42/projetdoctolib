@@ -5,10 +5,12 @@ import os
 #from passlib.hash import pbkdf2_sha256 # deuxième méthode pour encrypter le mot de passe
 from passlib.context import CryptContext
 
+
+
 pwdContext = CryptContext(schemes=["sha512_crypt"],
                            default="sha512_crypt",
                            sha512_crypt__default_rounds=45000)
-
+logged = False # Variable déterminant si l'utilisateur est actuellement connecté ou non sur la plateforme
 
 
 def toHash(s):
