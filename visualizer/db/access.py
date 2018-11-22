@@ -47,51 +47,47 @@ def update(data = [], fileName = "db/input.json"):
 
 def query(data,list_queries):
 
-#selection est une liste de sous- liste : chaque sous liste correspond à un paramètre à selectionner [[keys],[values]] - si on veut tout selectionner, on met [key]['all']
-# on fait un équivalent en SQL : selection=dictionaire
+#selection est une liste de sous-liste : chaque sous-liste correspond à un paramètre à selectionner [[keys],[values]] - si on veut tout selectionner, on met [key]['all']
+#on fait un équivalent en SQL : selection=dictionaire
 
     #création de la liste qui va selc
     selection=[]
     for critere in list_queries:
-        if critere[1]!='all':
+        if critere[1][0]!='all':
             selection.append(critere)
+
+    print(selection)
 
     #fonction de selection
     def test(dict_candidate):
 
-        nb_critere=len(selection)
-
-        for critere in range(nb_critere):
+        for critere in selection:
 
             #on implemente les keys et les values qui sont attendues
-            critere=selection[num_critere]
-            key=critere[0]
-            list_values=critere[1]
-            if
-
+            list_keys=critere[0]      #key est une liste!
+            list_values=critere[1]  #list
 
             #on projete la valeur du dictionnaire du candidat qui nous interesse
-
             dict=dict_candidate
-            nb_level=len(key)
+            nb_level=len(list_keys)
             for i in range(nb_level-1):
-                sous_liste=dict[key[i]]
+                sous_liste=dict[list_keys[i]]
                 if sous_liste==[]:
                     return False
                 dict=sous_liste[0]      #dict doit être un dictionnaire
 
             #on vérifie que la clé est bien dans les valeurs demandées
-            if dict[key[nb_level-1]] not in list_values:
+            if dict[list_keys[nb_level-1]] not in list_values:
                 return False
-
 
         return True
 
 
-    candidates_selected=list(filter(test,data))
+    candidates_selected=list(filter(test,data))         #on effectue la selection des candidats qui nous interessent
 
-    #liste ds values qui nous interessent
+    #on récupère la liste des values qui nous interessent parmi les candidats selectionnés
     list_values_to_return=[]
+
     for candidat in candidates_selected:
 
         list_temp=[]
@@ -117,19 +113,13 @@ def query(data,list_queries):
 
 
 """
-# teste
 
-
-###Petite explication sur le liste list_queries qui est en entrée de query():
+###Petite explication sur la list_queries qui est en entrée de query():
 list_query=[sous-liste_1, sous-liste_2, ..]
 sous-liste=[liste des clés, liste des valeurs que vous voulez obtenir pour les clés]
 liste des clés : ex ['id'] ou ['fichiers','id']  (il faut prendre en comte les niveaux du dictionnaire
-liste des valeurs : ['all']  si vous voulez tout selectionner, [1,2,3] si vous voulez selectionner uniquement les valeurs 1,2,3
+liste des valeurs : ['all']  si vous voulez tout selectionner, ['1','2','3'] si vous voulez selectionner uniquement les valeurs 1,2,3
 
 Exemple : si vous voulez obtenir les nom, prénom des candidat dont l' 'id' de ficheir est compris entre 1 et 5, la list_queries est:
-[[['prenom'],['all']],[['nom'],['all']],[['fichier','id'],[1,2,3,4,5]]]
-
-selection=[[['id'],[1]],[['fichiers','id'],[1]]]
-data = getData()
-list_candidat, list_values = query(data,selection)
+[[['prenom'],['all']],[['nom'],['all']],[['fichier','id'],['1','2','3','4','5']]]
 """
