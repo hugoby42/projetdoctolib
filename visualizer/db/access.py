@@ -6,7 +6,16 @@ import os
 # 2. prettyPrint
 # 3. update
 # 4. query
-
+#Trouver fichier json
+directory=os.getcwd()
+if directory[len(directory)-10:]=='visualizer':
+    os.chdir('./db')
+elif directory[len(directory)-3:]=='app':
+    os.chdir('../')
+    os.chdir('.db')
+elif directory[len(directory)-6:]=='panels':
+    os.chdir('../../')
+    os.chdir('./db')
 
 
 def getData(fileName = "input.json"):
@@ -16,28 +25,24 @@ def getData(fileName = "input.json"):
     with open(fileName, "r+") as inputFile:
         inputStr = inputFile.read()
         inputData = json.loads(inputStr)
-    
-        data = inputData
 
         inputFile.close()
 
-        return data
+        return inputData
 
 
 
-def prettyPrint(fileName = "input.json"):
+def prettyPrint(fileName = "db/input.json"):
     # Fonction affichant humainement le fichier JSON dans le terminal
     data = getData(fileName)
     candidats = json.dumps(data, indent=4, sort_keys=False)
     
     print("Voici l'ensemble des candidats en lice :\n\n\n")
-    for c in candidats:
-        print(c)
-        print("\n")
+    print(candidats)
 
 
 
-def update(data = [], fileName = "input.json"):
+def update(data = [], fileName = "db/input.json"):
     # Après de multiples modifications sur la variable data 
     # contenant l'équivalent du fichier JSON, cette fonction 
     # met à jour les modifications en les enregistrant dans le fichier JSON en question
@@ -49,47 +54,57 @@ def update(data = [], fileName = "input.json"):
 
 
 
-def query(data,selection): # A faire: vérification des type #on part du principe qu'il n'y a qu'une seule 'selection' pour l'instatnt
+def query(data,list_queries):
 
-# forme de la liste selection : [  [  [liste key, liste valeurs possibles] , [
+#selection est une liste de sous-liste : chaque sous-liste correspond à un paramètre à selectionner [[keys],[values]] - si on veut tout selectionner, on met [key]['all']
+#on fait un équivalent en SQL : selection=dictionaire
 
+    #création de la liste qui va selc
+    selection=[]
+    for critere in list_queries:
+        if critere[1][0]!='all':
+            selection.append(critere)
+
+    print(selection)
 
     #fonction de selection
-    def test(dict_candidate): #problème : un seul truc possible, donc si on doit faire plusieurs selection, il faudra faire plusieurs test ^^
+    def test(dict_candidate):
 
         for critere in selection:
 
             #on implemente les keys et les values qui sont attendues
-            key=critere[0]
-            list_values=critere[1]
+            list_keys=critere[0]      #key est une liste!
+            list_values=critere[1]  #list
 
             #on projete la valeur du dictionnaire du candidat qui nous interesse
             dict=dict_candidate
-            nb_level=len(key)
+            nb_level=len(list_keys)
             for i in range(nb_level-1):
-                sous_liste=dict[key[i]]
+                sous_liste=dict[list_keys[i]]
+                if sous_liste==[]:
+                    return False
                 dict=sous_liste[0]      #dict doit être un dictionnaire
 
-            #on vérifie que la clé est bien vérifiée
-            if dict[key[nb_level-1]] not in list_values:
+            #on vérifie que la clé est bien dans les valeurs demandées
+            if dict[list_keys[nb_level-1]] not in list_values:
                 return False
 
         return True
 
 
-    selection_candidates=filter(test,data)
+    candidates_selected=list(filter(test,data))         #on effectue la selection des candidats qui nous interessent
 
-    #liste ds values qui nous interessent
-    list_values=[]
-    for candidat in selection_candidates:
+    #on récupère la liste des values qui nous interessent parmi les candidats selectionnés
+    list_values_to_return=[]
+
+    for candidat in candidates_selected:
 
         list_temp=[]
 
-        for critere in selection:
+        for critere in list_queries:
 
-            #on implemente les keys et les values qui sont attendues
+            #on implemente les keys
             key=critere[0]
-            list_values=critere[1]
 
             #on projete la valeur du dictionnaire du candidat qui nous interesse
             dict=candidat
@@ -98,16 +113,22 @@ def query(data,selection): # A faire: vérification des type #on part du princip
                 sous_liste=dict[key[i]]
                 dict=sous_liste[0]      #dict doit être un dictionnaire
 
-            #on ajoute la velur cherchée à la liste des values
+            #on ajoute la valeur cherchée à la liste des valeurs a renvoyer
             list_temp.append(dict[key[nb_level-1]])
 
-        list_values.append(list_temp)
+        list_values_to_return.append(list_temp)
 
-    return selection_candidates, list_values
+    return candidates_selected, list_values_to_return
 
 
-#test
+"""
 
-selection=[[['id'],[1]],[['fichiers','id'],[1]]]
-data = getData()
-list_candidat, list_values = query(data,selection)
+###Petite explication sur la list_queries qui est en entrée de query():
+list_query=[sous-liste_1, sous-liste_2, ..]
+sous-liste=[liste des clés, liste des valeurs que vous voulez obtenir pour les clés]
+liste des clés : ex ['id'] ou ['fichiers','id']  (il faut prendre en comte les niveaux du dictionnaire
+liste des valeurs : ['all']  si vous voulez tout selectionner, ['1','2','3'] si vous voulez selectionner uniquement les valeurs 1,2,3
+
+Exemple : si vous voulez obtenir les nom, prénom des candidat dont l' 'id' de ficheir est compris entre 1 et 5, la list_queries est:
+[[['prenom'],['all']],[['nom'],['all']],[['fichier','id'],['1','2','3','4','5']]]
+"""

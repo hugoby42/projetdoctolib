@@ -121,7 +121,7 @@ def afficherPage(tab):
         print("topito")
         return main.layout
 
-    elif pathname.startswith("/candidat/"):
+    elif pathname.startswith("/candidat"):
         # Page personnelle concernant le candidat (le deuxième paramètre identifie le candidat)
         return candidat.layout
 
@@ -141,7 +141,6 @@ def afficherPage(tab):
     else:
         # Page d'erreur (URL non résolue)
         return erreur404.layout
-
 
 
 launch() # Lancement de l'application web
