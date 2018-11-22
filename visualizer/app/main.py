@@ -143,5 +143,4 @@ def afficherPage(tab):
         return erreur404.layout
 
 
-
 launch() # Lancement de l'application web
