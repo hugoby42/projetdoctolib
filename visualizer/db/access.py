@@ -32,7 +32,7 @@ def getData(fileName = "input.json"):
 
 
 
-def prettyPrint(fileName = "db/input.json"):
+def prettyPrint(fileName = "input.json"):
     # Fonction affichant humainement le fichier JSON dans le terminal
     data = getData(fileName)
     candidats = json.dumps(data, indent=4, sort_keys=False)
@@ -42,7 +42,7 @@ def prettyPrint(fileName = "db/input.json"):
 
 
 
-def update(data = [], fileName = "db/input.json"):
+def update(data = [], fileName = "input.json"):
     # Après de multiples modifications sur la variable data 
     # contenant l'équivalent du fichier JSON, cette fonction 
     # met à jour les modifications en les enregistrant dans le fichier JSON en question

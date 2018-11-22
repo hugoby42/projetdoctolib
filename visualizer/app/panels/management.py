@@ -19,7 +19,7 @@ def make_dash_table(table):
     return html_table
 ###
 def get_id_candidat():
-    return (25)
+    return (0)
 ###
 colors = {
     'background': '#FFFFFF',
