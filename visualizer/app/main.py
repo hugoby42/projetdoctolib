@@ -9,10 +9,9 @@ import plotly.plotly as py
 
 from plotly import graph_objs as go
 from dash.dependencies import Input, Output, State
+
 from visualizer.app.panels import candidat, login, main, management, erreur404, postuler, statistiques
 from visualizer.app import *
-
-
 
 DASH_APP_NAME = 'Interface Recrutement Doctolib' # Informations concernant le serveur Dash 
 DASH_APP_PRIVACY = 'public' # Il est possible pour n'importe quel utilisateur de se connecter sur Dash

@@ -1,6 +1,6 @@
 import json
 import os
-from
+from visualizer.db.gen import creation_n_candidats
 
 # index :
 # 1. getData
@@ -8,41 +8,38 @@ from
 # 3. update
 # 4. query
 
-input_json =
 
 
-def getData(fileName = "input.json"):
+
+def getData(fileName = "./input.json"):
     # Fonction ouvrant le fichier JSON contenant la liste 
     # des candidats et renvoyant une liste de dictionnaires, 
     # chacun contenant les informations relatives à un candidat
     with open(fileName, "r+") as inputFile:
         inputStr = inputFile.read()
         inputData = json.loads(inputStr)
-    
-        data = inputData["candidats"]
 
         inputFile.close()
 
-        return data
+        return inputData
 
 
 
-def prettyPrint(fileName = "input.json"):
+def prettyPrint(fileName = "db/input.json"):
     # Fonction affichant humainement le fichier JSON dans le terminal
     data = getData(fileName)
     candidats = json.dumps(data, indent=4, sort_keys=False)
     
     print("Voici l'ensemble des candidats en lice :\n\n\n")
-    for c in candidats:
-        print(c)
-        print("\n")
+    print(candidats)
 
 
 
-def update(data = [], fileName = "input.json"):
+def update(data = [], fileName = "./input.json"):
     # Après de multiples modifications sur la variable data 
     # contenant l'équivalent du fichier JSON, cette fonction 
     # met à jour les modifications en les enregistrant dans le fichier JSON en question
+    print(os.getcwd())
     os.remove(fileName)
 
     with open(fileName, "w") as inputFile: 
@@ -64,7 +61,8 @@ def query(data,selection):
             #on implemente les keys et les values qui sont attendues
             key=critere[0]
             list_values=critere[1]
-
+            if list_values == ['all']:
+                return True
             #on projete la valeur du dictionnaire du candidat qui nous interesse
 
             dict=dict_candidate
@@ -85,7 +83,7 @@ def query(data,selection):
     selection_candidates=list(filter(test,data))
 
     #liste ds values qui nous interessent
-    list_values=[]
+    list_values_to_return=[]
     for candidat in selection_candidates:
 
         list_temp=[]
@@ -106,13 +104,16 @@ def query(data,selection):
             #on ajoute la velur cherchée à la liste des values
             list_temp.append(dict[key[nb_level-1]])
 
-        list_values.append(list_temp)
+        list_values_to_return.append(list_temp)
 
     return selection_candidates, list_values
 
 
-#test
-
-selection=[[['id'],[1]],[['fichiers','id'],[1]]]
+"""
+selection=[[['id'],[0,1,2]],[['prenom'],['all']]]
+#selection=[[['id'],[001]],[['fichiers','id'],[1]]]
 data = getData()
+#print(data)
 list_candidat, list_values = query(data,selection)
+print(list_candidat,"ok",list_values)
+"""

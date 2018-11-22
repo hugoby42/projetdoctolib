@@ -5,6 +5,7 @@ import math as m
 import pandas as pd
 import flask as fl
 import plotly.plotly as py
+
 import visualizer.app.panels.auth
 
 from plotly import graph_objs as go
