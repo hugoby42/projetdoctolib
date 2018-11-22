@@ -1,5 +1,6 @@
 from visualizer.app.panels.__common__ import *
 import visualizer.db.access as access
+import os
 #le candidat conserné
 id_candidat=25
 #importer les données du candidat
@@ -72,6 +73,13 @@ def niveau_candidat(data_candidat):
     return etoile_pleine*level+etoile_vide*(5-level)
 ###
 
+###Etat candidat
+etats=['Postulé','Exercice donné','Code en cours de vérification','Fin de candidature','Refus','Recruté']
+options_etat=[]
+for etat in etats:
+    options_etat.append({'label' : etat, 'value' : etat})
+###
+
 layout = html.Div([  # page 1
 
 
@@ -110,23 +118,36 @@ layout = html.Div([  # page 1
                 ], className="six columns"),
 
             ], className="row "),
-        html.Div(style={'marginTop' : '10',
+            #Row 2
+        html.Div(children=[
+            html.Div(style={'marginTop' : '10',
                         'backgroundColor': colors['background'],
                          "border": "1px solid "+ colors['contour'],},children=[
-            html.Div([
                 html.H6(["Candidature pour Doctolib"],
                         className="gs-header gs-table-header padded"),
-                'Etat : ' + data_candidat['etat'],
+                html.P(id='etat-content',children=['Etat : ' + data_candidat['etat']]),
                 html.Br(),
-                'Niveau du candidat : ' + niveau_candidat(data_candidat),
-            ])
+                html.P('Niveau du candidat : ' + niveau_candidat(data_candidat)),
+            ],className="six columns"),
+            html.Div(style={'marginTop' : '10',
+                        'backgroundColor': colors['background'],
+                         "border": "1px solid "+ colors['contour'],},children=[
+                        html.H6(["Modifier l'état du candidat"],
+                        className="gs-header gs-table-header padded"),
+                        dcc.Dropdown(
+                        options=options_etat,
+                        id="etat-dropdown",
+                        value=data_candidat['etat']
+                    )
+            ],className="six columns")
         ],
         className="row "),
+            #Rox 3
         html.Div(style={'marginTop' : '10'},children=[
             html.Div([
             dcc.Dropdown(
                     options=options_file,
-                    id="fichiers_dropdown",
+                    id="fichiers-dropdown",
                     value='neutre'
                     ),
                 html.Div(id='fichiers-content',style={'marginTop' : '10',
@@ -140,7 +161,7 @@ layout = html.Div([  # page 1
             html.Div([
             dcc.Dropdown(
                     options=options_test,
-                    id="fichiers_test_dropdown",
+                    id="fichiers-test-dropdown",
                     value='neutre'
                     ),
                 html.Div(id='tests-content',style={'marginTop' : '10',
@@ -161,11 +182,11 @@ layout = html.Div([  # page 1
     ], className="page")
 
 @app.callback(Output('fichiers-content', 'children'),
-              [Input('fichiers_dropdown', 'value')])
-def render_content(file):
+              [Input('fichiers-dropdown', 'value')])
+def render_content(value):
     print("Hzsfzsfe")
     for fichier in data_candidat['fichiers']:
-        if file == 'fichier-'+fichier['id']:
+        if value == 'fichier-'+fichier['id']:
             return html.Div([
                 html.H3(fichier['nom']),
                 html.P(fichier['contenu'],style={'backgroundColor': '#BBD2E1'}),
@@ -183,12 +204,28 @@ def render_content(file):
 
             ])
 @app.callback(Output('tests-content', 'children'),
-              [Input('fichiers_test_dropdown', 'value')])
-def render_content(file):
+              [Input('fichiers-test-dropdown', 'value')])
+def render_content(value):
     print("Hzsfzsfe")
     for fichier in data_candidat['fichiers']:
-        if file == 'fichier-test-'+fichier['id']:
+        if value == 'fichier-test-'+fichier['id']:
             return html.Div([
                 html.H3(fichier['nomTest']),
                 html.P(fichier['contenu_Test']),
             ])
+@app.callback(Output('etat-content','children'),
+              [Input('etat-dropdown','value')])
+
+def update_database(value):
+    data_candidat['etat']=value
+    data[id_candidat]=data_candidat
+    directory=os.getcwd()
+    if directory[len(directory)-10:]=='visualizer':
+        os.chdir('./db')
+    elif directory[len(directory)-3:]=='app':
+        os.chdir('../')
+        os.chdir('.db')
+    elif directory[len(directory)-6:]=='panels':
+        os.chdir('../../')
+        os.chdir('./db')
+    visualizer.db.access.update(data, fileName = "input.json")
