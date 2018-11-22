@@ -1,6 +1,5 @@
-from panels.__common__ import *
+from app.panels.__common__ import *
 
 layout = html.Div([
-    getHeader("candidatTab")
+    
     ])
-
