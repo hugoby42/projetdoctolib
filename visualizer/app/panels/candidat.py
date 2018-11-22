@@ -96,7 +96,7 @@ layout = html.Div([  # page 1
                                 "border": "1px solid " + colors['contour'],
                                 "paddingLeft" : '4',
                                 "paddingBottom" : '21'}, children = [
-                    html.H6(['Informations personnelles'],
+                    html.H6(style={'textAlign' : 'center'},children=['Informations personnelles'],
                             className="gs-header gs-text-header padded"),
 
                    "Date de naissance : " + data_candidat['dateNaissance'],
