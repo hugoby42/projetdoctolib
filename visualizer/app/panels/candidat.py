@@ -154,7 +154,7 @@ layout = html.Div([  # page 1
                 html.Div(id='fichiers-content',style={'marginTop' : '10',
                                                       'backgroundColor': colors['background'],
                                                         "border": "1px solid "+ colors['contour'],}
-                         , children=[])
+                         , children=[html.Div([])])
                 ])
         ],
         className="row "),
@@ -175,6 +175,7 @@ layout = html.Div([  # page 1
         html.Div(style={'marginTop' : '10'},children=[
             html.Div([
 
+
             ])
         ],
         className="row "),
@@ -184,41 +185,42 @@ layout = html.Div([  # page 1
 
 @app.callback(Output('fichiers-content', 'children'),
               [Input('fichiers-dropdown', 'value')])
-def render_content(value):
+def affiche_fichier(fichiersdropdown):
     print("Hzsfzsfe")
     for fichier in data_candidat['fichiers']:
-        if value == 'fichier-'+fichier['id']:
-            return html.Div([
+        if fichiersdropdown == 'fichier-'+fichier['id']:
+            return html.Div(html.Div([
                 html.H3(fichier['nom']),
                 html.P(fichier['contenu'],style={'backgroundColor': '#BBD2E1'}),
-                "Date d'upload : " + fichier["dateUpload"],
+                "Date d'upload : " + fichier['stats']['dateUpload'],
                 html.Br(),
-                "Commentaire sur le code : " + fichier["compteRendu"],
+                "Commentaire sur le code : " + fichier['stats']['compteRendu'],
                 html.Br(),
-                "Nombre de fonctions : " + fichier['stats']['functionsCount'],
+                "Nombre de fonctions : " + str(fichier['stats']['functionsCount']),
                 html.Br(),
-                "Nombre de commentaires : " + fichier['stats']['commentCount'],
+                "Nombre de commentaires : " + str(fichier['stats']['commentCount']),
                 html.Br(),
                 "Qualité du nom des variables : " + str(int(round(fichier['stats']['variableNameQuality'],2)*100))+'%',
                 html.Br(),
-                "Nombre de similaritées avec notre base de données : " + len(fichier['stats']['duplicate'],)
+                "Nombre de similaritées avec notre base de données : " + str(len(fichier['stats']['duplicate'])),
 
-            ])
+            ]))
 @app.callback(Output('tests-content', 'children'),
               [Input('fichiers-test-dropdown', 'value')])
-def render_content(value):
+def affiche_test(fichierstestdropdown):
     print("Hzsfzsfe")
     for fichier in data_candidat['fichiers']:
-        if value == 'fichier-test-'+fichier['id']:
+        if fichierstestdropdown == 'fichier-test-'+fichier['id']:
             return html.Div([
                 html.H3(fichier['nomTest']),
-                html.P(fichier['contenu_Test']),
+                html.P(fichier['contenu_Test'],style={'backgroundColor': '#BBD2E1'}),
             ])
+
 @app.callback(Output('etat-content','children'),
               [Input('etat-dropdown','value')])
 
-def update_database(value):
-    data_candidat['etat']=value
+def update_database(etatdropdown):
+    data_candidat['etat']=etatdropdown
     data[id_candidat]=data_candidat
     directory=os.getcwd()
     if directory[len(directory)-10:]=='visualizer':
