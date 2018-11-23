@@ -1,7 +1,7 @@
 from app.panels.__common__ import *
 
 def make_dash_table(table):
-    ''' Return a dash definition of an HTML table for a Pandas dataframe '''
+    ''' Return a dash definition of an HTML table from the dataframe '''
     html_table=[]
     html_table.append(html.Tr(style={'fontSize' : '20'},children=[html.Td(['id']),html.Td('Nom'),html.Td('Prénom'),html.Td('Niveau'),html.Td('Candidature')]))
     for candidat in table:
@@ -21,6 +21,7 @@ def make_dash_table(table):
     return html_table
 
 def trier_par_level():
+    """Trie la table en fonction du niveau"""
     data = db.access.getData()
     data_triee=[{} for i in range(len(data))]
     liste_nom=[[data[i]['metrics']['level'],data[i]['id']] for i in range(len(data))]
@@ -31,6 +32,7 @@ def trier_par_level():
 ###TRER etat,nom,prenom
 
 def trier_par(type):
+    """Trie la table en fonction de l'entrée type, colonne de la table"""
     data = db.access.getData()
     data_triee=[{} for i in range(len(data))]
     liste_nom=[[data[i][type],data[i]['id']] for i in range(len(data))]
@@ -43,7 +45,7 @@ def getManagement():
     data=db.access.getData()
     ####TABLE
     def make_dash_table(table):
-        ''' Return a dash definition of an HTML table for a Pandas dataframe '''
+        ''' Return a dash definition of an HTML table from the dataframe '''
         html_table=[]
         html_table.append(html.Tr(style={'fontSize' : '20'},children=[html.Td(['id']),html.Td('Nom'),html.Td('Prénom'),html.Td('Niveau'),html.Td('Candidature')]))
         for candidat in table:
@@ -67,6 +69,7 @@ def getManagement():
 
     ##TRIER LEVEL
     def trier_par_level(data=db.access.getData()):
+        """Trie la table en fonction du niveau"""
         data_triee=[{} for i in range(len(data))]
         liste_nom=[[data[i]['metrics']['level'],data[i]['id']] for i in range(len(data))]
         liste_nom=sorted(liste_nom)
@@ -76,6 +79,7 @@ def getManagement():
     ###TRER etat,nom,prenom
 
     def trier_par(type,data=db.access.getData()):
+        """Trie la table en fonction de l'entrée type, colonne de la table"""
         data_triee=[{} for i in range(len(data))]
         liste_nom=[[data[i][type],data[i]['id']] for i in range(len(data))]
         liste_nom=sorted(liste_nom)
@@ -89,7 +93,7 @@ def getManagement():
         'contour' : '#2E3F5C'
     }
 
-    ###TRIER
+    ###LABELS DE TRI
     options=[
         {'label' : 'par identifiant', 'value' : 'id'},
         {'label' : 'par nom', 'value' : 'nom'},
