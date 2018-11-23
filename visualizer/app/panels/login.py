@@ -7,6 +7,10 @@ layout = html.Div([
         html.Button('Submit', id='connexion')
        ], id = "main"),
     ])
+
+# À nouveau, nous n'avons pas implémenté cette fonctionnalité car elle nécessait une redirection d'une page à une autre,
+# impossible puisque l'on travaillait avec les tabs et non les urls (il fallait choisir car plusieurs callbakcs ne
+# pouvaient pas rediriger vers un même objet HTML)
 """
 @app.callback(dash.dependencies.Output('page-content', 'children'),
     [dash.dependencies.Input('button', 'n_clicks')],
