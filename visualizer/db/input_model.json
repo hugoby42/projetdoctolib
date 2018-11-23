@@ -1,43 +1,31 @@
 {
  "candidats":
- [
- {
-   "id": 1,
-   "nom": 1,
-   "prenom": 1,
-   "dateNaissance": 1,
-   "lieuNaissance": 1,
-   "dateEntretien": 1,
-   "lieuEntretien": 1,
+ [{
+   "id": 0,
+   "nom": "Came",
+   "prenom": "Signe",
+   "dateNaissance": "29/03/1991",
+   "lieuNaissance": "Soucht",
+   "dateEntretien": "12/09/2018",
+   "lieuEntretien": "Eiffel",
    "fichiers":
-   [
-     {
-       "id" : 1,
-       "nom": 1,
-       "contenu": 1,
-       "nomTest": 1,
-       "contenu_Test": 1,
-       "stats":
-       {
-         "functionsCount": 1,
-         "commentCount": 1,
-         "variableNameQuality": 1,
-         "duplicate":
-         [
-           {
-             "id": 1,
-             "similarity": 1
-           }
-         ]
-       },
-       "compteRendu": 1,
-       "dateUpload": 1
-     }
-   ],
-   "metrics":
-   {
-     "level": 1
-   }
- }
- ]
-}
+   [{
+       "id" : "0000",
+       "nom": "exercise.py",
+       "contenu": "\ndef sum(a,b):\n    return(a+b)",
+       "nomTest": "test_exercise.py",
+       "contenu_Test": "\nimport pytest\nimport exercise.py as Ex\n\ndef test_sum():\n    assert ( Ex.sum(a,b)== a+b)",
+       "stats": {
+         "functionsCount": 94,
+         "commentCount": 64,
+         "variableNameQuality": 0.8828393111933696,
+         "duplicate":[{
+             "id": 90,
+             "similarity": "a+b"
+         }]},
+       "compteRendu": "Bon code!",
+       "dateUpload": "14/09/2018"
+   }],
+   "etat" : "Fin de candidature",
+   "metrics": {"level": 1}
+ }]}

@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="292a69d1-2a65-4b3a-a5e4-ddd17cb8914a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/visualizer/app/panels/management.py" beforeDir="false" afterPath="$PROJECT_DIR$/visualizer/app/panels/management.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/visualizer/app/panels/statistiques.py" beforeDir="false" afterPath="$PROJECT_DIR$/visualizer/app/panels/statistiques.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/visualizer/db/candidats/gen_random_date.py" beforeDir="false" afterPath="$PROJECT_DIR$/visualizer/db/candidats/gen_random_date.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/visualizer/db/input_model.json" beforeDir="false" afterPath="$PROJECT_DIR$/visualizer/db/input_model.json" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -32,16 +29,16 @@
         <counts>
           <entry key="csv" value="2" />
           <entry key="dummy" value="3" />
-          <entry key="json" value="5" />
+          <entry key="json" value="137" />
           <entry key="md" value="898" />
           <entry key="py" value="24885" />
-          <entry key="txt" value="283" />
+          <entry key="txt" value="331" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JSON" value="5" />
-          <entry key="PLAIN_TEXT" value="1186" />
+          <entry key="JSON" value="137" />
+          <entry key="PLAIN_TEXT" value="1234" />
           <entry key="Python" value="24885" />
         </counts>
       </usages-collector>
@@ -50,16 +47,16 @@
           <entry key="csv" value="1" />
           <entry key="gitignore" value="1" />
           <entry key="hash" value="2" />
-          <entry key="json" value="7" />
-          <entry key="py" value="65" />
+          <entry key="json" value="10" />
+          <entry key="py" value="66" />
           <entry key="yml" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JSON" value="7" />
+          <entry key="JSON" value="10" />
           <entry key="PLAIN_TEXT" value="5" />
-          <entry key="Python" value="65" />
+          <entry key="Python" value="66" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages">
@@ -71,37 +68,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/visualizer/db/input_model.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="408">
+              <caret line="24" column="13" lean-forward="true" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/visualizer/main.py">
+        <entry file="file://$PROJECT_DIR$/visualizer/db/access.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
-              <folding>
-                <element signature="e#0#28#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/visualizer/db/candidats/gen_random_date.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="799">
-              <caret line="48" selection-start-line="48" selection-end-line="48" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/visualizer/app/panels/statistiques.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1666">
-              <caret line="115" column="59" selection-start-line="115" selection-start-column="59" selection-end-line="115" selection-end-column="59" />
-              <folding>
-                <element signature="e#1919#2071#0" />
-                <element signature="e#2736#2943#0" />
-                <element signature="e#2959#3161#0" />
-              </folding>
+            <state relative-caret-position="357">
+              <caret line="23" column="23" selection-start-line="23" selection-start-column="23" selection-end-line="23" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -172,6 +152,7 @@
         <option value="$PROJECT_DIR$/visualizer/app/panels/statistiques.py" />
         <option value="$PROJECT_DIR$/visualizer/app/panels/management.py" />
         <option value="$PROJECT_DIR$/visualizer/db/candidats/gen_random_date.py" />
+        <option value="$PROJECT_DIR$/visualizer/db/input_model.json" />
       </list>
     </option>
   </component>
@@ -209,13 +190,6 @@
               <item name="projetdoctolib" type="462c0819:PsiDirectoryNode" />
               <item name="visualizer" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="projetdoctolib" type="b2602c69:ProjectViewProjectNode" />
-              <item name="projetdoctolib" type="462c0819:PsiDirectoryNode" />
-              <item name="visualizer" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="panels" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="projetdoctolib" type="b2602c69:ProjectViewProjectNode" />
@@ -405,7 +379,7 @@
       <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.19316375" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.30456853" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.0" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -447,7 +421,8 @@
     <MESSAGE value="Commit de Clara, fin de la journée de jeudi !" />
     <MESSAGE value="Commit de Clara, début vendredi! Des camemberts colorés!" />
     <MESSAGE value="Commit de Clara, midi vendredi! Des camemberts colorés!" />
-    <option name="LAST_COMMIT_MESSAGE" value="Commit de Clara, midi vendredi! Des camemberts colorés!" />
+    <MESSAGE value="Commit de Clara, midi vendredi! rectification et ajout de commentaires" />
+    <option name="LAST_COMMIT_MESSAGE" value="Commit de Clara, midi vendredi! rectification et ajout de commentaires" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/Dash/candidats.json.py" />
@@ -468,9 +443,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/visualizer/db/candidats/candidats.json">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/visualizer/db/candidats/gen_random_date_test.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
@@ -486,9 +458,6 @@
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/visualizer/app/auth.hash">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/visualizer/db/input_model.json">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/visualizer/app/panels/main.py">
@@ -552,24 +521,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/visualizer/db/access.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="37" column="35" selection-start-line="37" selection-start-column="35" selection-end-line="37" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/visualizer/db/get_random_date.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="243">
           <caret line="50" column="36" selection-start-line="50" selection-start-column="36" selection-end-line="50" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/visualizer/db/input.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-224089">
-          <caret line="7637" selection-start-line="7637" selection-end-line="7637" />
         </state>
       </provider>
     </entry>
@@ -658,6 +613,30 @@
           <folding>
             <element signature="e#0#28#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/visualizer/db/candidats/candidats.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/visualizer/db/input.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1152" column="6" lean-forward="true" selection-end-line="1152" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/visualizer/db/input_model.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="24" column="13" lean-forward="true" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/visualizer/db/access.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="23" column="23" selection-start-line="23" selection-start-column="23" selection-end-line="23" selection-end-column="23" />
         </state>
       </provider>
     </entry>
