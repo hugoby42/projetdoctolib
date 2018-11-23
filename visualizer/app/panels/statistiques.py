@@ -8,11 +8,18 @@ import visualizer.app.panels.statistiques_fonctions as stat_fonction
 
 data = getData()
 
-'''Idées de ce qu'on pourrait faire: afficher la moyenne des notes, le nb de candidats à chaque étape, 
-nb de candidats avec chaque note, nb de candidats pour chaque année de naissance, nb de jours moyens avant
-le dépôt de l'exercice'''
+
+#On programme ici la page statistiques
+#dans un premier temps, on réalise tous les calculs statistiques (grâce aux fonctions du module statistiques_fonctions),
+#puis on affiche les résultats sous dash
+
+#Les stats étudiées sont: le nombre de candidats total,la moyenne des notes, le nombre de jours moyen entre l'entretien et le dépôt
+#des fichiers, le nombre moyen de commentaires, fonction ou plagiats par fichier, la qualité moyenne des variable, ainsi que la
+# répartition des candidats en fonction de leur note, de leur étape de recrutement ou de leur année de naissance
 
 
+#Partie 1: Calculs statistiques
+#Initatilisation des variables
 
 #Cacul de la note moyenne
 somme_notes = 0
@@ -41,9 +48,11 @@ nb_candidats_etape['Recruté'] = 0
 
 #Répartitions des candidats selon leur âge
 age = {}
-for i in range (1970,1999):
-    age[str(i)] = 0
+for i in range (1970,1999):age[str(i)] = 0
 
+
+
+#Calculs des statistiques
 for candidat in data:
     #répartition des candidats selon leur note
     candidat_note = candidat['metrics']['level']
@@ -80,12 +89,14 @@ qualite_variable_moyenne = round(qualite_variable_moyenne/nb_candidats,2)
 nb_duplicate_moyen = round(nb_duplicate_moyen/nb_candidats,2)
 
 
+
+
+#Partie 2: affichage des statistiques
 data_notes = [
     {'values': nb_candidats_note,
      'labels': ['★✩✩✩✩', '★★✩✩✩', '★★★✩✩', '★★★★✩', '★★★★★'],
      'type': 'pie',
-     'marker':{'colors': ["#264e86", "#0074e4", "#74dbef", "#eff0f4","#CFA0E9"],}
-     }]
+     'marker':{'colors': ["#264e86", "#0074e4", "#74dbef", "#eff0f4","#CFA0E9"],}}]
 
 data_etapes = [
     {'values': list(nb_candidats_etape.values()),
@@ -98,9 +109,11 @@ colors = {'background': '#FFFFFF', 'text': '#000000', 'contour' : '#2E3F5C'}
 
 layout = html.Div(
     children=[
-        htlm.H1('Statistiques'),
+        htlm.H1('Statistiques'), #Affichage du titre de la page
+
         html.Div(
             htlm.Div(
+                #Affichage des valeurs les plus importantes
                 children=[
                     "Nombre de candidats :{}".format(nb_candidats), htlm.Br(),
                     'Moyenne des notes = {}'.format(moyenne), htlm.Br()
@@ -111,7 +124,9 @@ layout = html.Div(
                 className='six columns'),
             className='row'),
         htlm.Br(),
+
         htlm.Div(
+            #Affichage des valeurs moyennes diverses et variées
             html.Div(
             children = [
                 "Nombre de jours moyen entre l'entretien et le dépôt : {}".format(nb_jours_moyen_entretien_depot), htlm.Br(),
@@ -122,11 +137,12 @@ layout = html.Div(
             style={'backgroundColor': colors['background'],
                     "border": "1px solid "+ colors['contour'],
                     "paddingLeft" : '4'},className="six columns"),
-            className="row"
-        ),
+            className="row"),
         htlm.Br(),
         htlm.Br(),
+
         html.Div(                       #Graphe 1: Répartition en fonction de leur note
+            #on utilise un graphe de type 'pie'
             style={'backgroundColor' : '#FFFFFF'},
             children = [
                 html.H3(style={'textAlign' :'center'},
@@ -142,7 +158,9 @@ layout = html.Div(
                 )
         ]),
         htlm.Br(),
+
         htlm.Div(                       #Graphe 2 : Répartition en fonction de leur étape de recrutement
+            #on utilise un graphe de type 'pie'
             style={'backgroundColor' : '#FFFFFF'},
             children = [
                 html.H3(style={'textAlign' :'center'},
@@ -157,7 +175,9 @@ layout = html.Div(
                     })
             ]),
         htlm.Br(),
-        htlm.Div(
+
+        htlm.Div(                       #Graphe 3 : Répartition en fonction des dates de naissance
+            #On utilise un graphe de type 'barres'
             style={'backgroundColor' : '#FFFFFF'},
             children = [
                 html.H3(style={'textAlign' :'center'},
@@ -168,9 +188,6 @@ layout = html.Div(
                         'data': [{'x':list(age.keys()),'y': list(age.values()),'type':'bar', 'name':'age'}]
                     }
             )
-        ])                  #Graphe 3 : Répartition en fonction des enfants
-
-
-
+        ])
     ]
 )

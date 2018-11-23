@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="292a69d1-2a65-4b3a-a5e4-ddd17cb8914a" name="Default Changelist" comment="Commit de Clara, midi vendredi! Des camemberts colorés!">
+    <list default="true" id="292a69d1-2a65-4b3a-a5e4-ddd17cb8914a" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/visualizer/app/panels/management.py" beforeDir="false" afterPath="$PROJECT_DIR$/visualizer/app/panels/management.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/visualizer/app/panels/statistiques.py" beforeDir="false" afterPath="$PROJECT_DIR$/visualizer/app/panels/statistiques.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/visualizer/db/candidats/gen_random_date.py" beforeDir="false" afterPath="$PROJECT_DIR$/visualizer/db/candidats/gen_random_date.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -15,13 +18,14 @@
     <session id="1667375481">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="6" />
+          <entry key="project.closed" value="7" />
           <entry key="project.open.time.0" value="1" />
+          <entry key="project.open.time.4" value="1" />
           <entry key="project.open.time.5" value="1" />
           <entry key="project.open.time.6" value="1" />
           <entry key="project.open.time.7" value="3" />
           <entry key="project.open.time.8" value="1" />
-          <entry key="project.opened" value="7" />
+          <entry key="project.opened" value="8" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -30,7 +34,7 @@
           <entry key="dummy" value="3" />
           <entry key="json" value="5" />
           <entry key="md" value="898" />
-          <entry key="py" value="23332" />
+          <entry key="py" value="24885" />
           <entry key="txt" value="283" />
         </counts>
       </usages-collector>
@@ -38,7 +42,7 @@
         <counts>
           <entry key="JSON" value="5" />
           <entry key="PLAIN_TEXT" value="1186" />
-          <entry key="Python" value="23332" />
+          <entry key="Python" value="24885" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -47,7 +51,7 @@
           <entry key="gitignore" value="1" />
           <entry key="hash" value="2" />
           <entry key="json" value="7" />
-          <entry key="py" value="64" />
+          <entry key="py" value="65" />
           <entry key="yml" value="1" />
         </counts>
       </usages-collector>
@@ -55,7 +59,7 @@
         <counts>
           <entry key="JSON" value="7" />
           <entry key="PLAIN_TEXT" value="5" />
-          <entry key="Python" value="64" />
+          <entry key="Python" value="65" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages">
@@ -67,50 +71,36 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/visualizer/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="14" selection-start-column="14" selection-end-column="14" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/visualizer/app/panels/management.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="394">
-              <caret line="80" column="4" selection-start-line="80" selection-start-column="4" selection-end-line="89" selection-end-column="7" />
+            <state relative-caret-position="204">
+              <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
               <folding>
-                <element signature="e#1100#1175#0" />
-                <element signature="e#1438#1667#0" />
-                <element signature="e#1444#1666#0" />
-                <element signature="e#1712#2074#0" />
-                <element signature="e#1778#2057#0" />
-                <element signature="e#2133#2397#0" />
-                <element signature="e#2199#2390#0" />
+                <element signature="e#0#28#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/visualizer/db/candidats/gen_random_date.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="799">
+              <caret line="48" selection-start-line="48" selection-end-line="48" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/visualizer/app/panels/statistiques.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="208">
-              <caret line="123" column="63" selection-start-line="123" selection-start-column="63" selection-end-line="123" selection-end-column="63" />
+            <state relative-caret-position="1666">
+              <caret line="115" column="59" selection-start-line="115" selection-start-column="59" selection-end-line="115" selection-end-column="59" />
               <folding>
-                <element signature="e#0#46#0" expanded="true" />
-                <element signature="e#1408#2331#0" />
                 <element signature="e#1919#2071#0" />
-                <element signature="e#2736#3032#0" />
-                <element signature="e#2742#2942#0" />
-                <element signature="e#3048#3334#0" />
-                <element signature="e#3581#3743#0" />
-                <element signature="e#3777#3848#0" />
-                <element signature="e#3953#4455#0" />
-                <element signature="e#4425#4576#0" />
-                <element signature="e#5673#6188#0" />
+                <element signature="e#2736#2943#0" />
+                <element signature="e#2959#3161#0" />
               </folding>
             </state>
           </provider>
@@ -156,7 +146,6 @@
         <option value="$PROJECT_DIR$/visualizer/db/candidats/Prenoms.csv" />
         <option value="$PROJECT_DIR$/visualizer/db/candidats/gen_random_identity.py" />
         <option value="$PROJECT_DIR$/visualizer/db/candidats/gen_random_date_test.py" />
-        <option value="$PROJECT_DIR$/visualizer/db/candidats/gen_random_date.py" />
         <option value="$PROJECT_DIR$/visualizer/app/dash tuto/Dash_tuto1.py" />
         <option value="$PROJECT_DIR$/visualizer/app/dash_tuto/Dash_tuto1.py" />
         <option value="$PROJECT_DIR$/visualizer/app/dash_tuto/fonction_Hugo.py" />
@@ -179,9 +168,10 @@
         <option value="$PROJECT_DIR$/dash_test/app.py" />
         <option value="$PROJECT_DIR$/visualizer/app/panels/statistiques_fonctions.py" />
         <option value="$PROJECT_DIR$/visualizer/db/gen.py" />
-        <option value="$PROJECT_DIR$/visualizer/app/panels/management.py" />
         <option value="$PROJECT_DIR$/dash_test/brouillon_2.py" />
         <option value="$PROJECT_DIR$/visualizer/app/panels/statistiques.py" />
+        <option value="$PROJECT_DIR$/visualizer/app/panels/management.py" />
+        <option value="$PROJECT_DIR$/visualizer/db/candidats/gen_random_date.py" />
       </list>
     </option>
   </component>
@@ -232,6 +222,13 @@
               <item name="projetdoctolib" type="462c0819:PsiDirectoryNode" />
               <item name="visualizer" type="462c0819:PsiDirectoryNode" />
               <item name="db" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="projetdoctolib" type="b2602c69:ProjectViewProjectNode" />
+              <item name="projetdoctolib" type="462c0819:PsiDirectoryNode" />
+              <item name="visualizer" type="462c0819:PsiDirectoryNode" />
+              <item name="db" type="462c0819:PsiDirectoryNode" />
+              <item name="candidats" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -403,13 +400,12 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Structure" order="0" weight="0.25" />
-      <window_info content_ui="combo" id="Project" order="1" weight="0.28219396" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.19316375" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.30456853" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.30456853" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -479,13 +475,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="7" column="63" selection-start-line="7" selection-start-column="63" selection-end-line="7" selection-end-column="63" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/visualizer/db/candidats/gen_random_date.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="833">
-          <caret line="49" column="58" selection-start-line="49" selection-start-column="58" selection-end-line="49" selection-end-column="58" />
         </state>
       </provider>
     </entry>
@@ -616,9 +605,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="680">
           <caret line="40" selection-start-line="40" selection-end-line="40" />
-          <folding>
-            <element signature="e#0#29#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -636,22 +622,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/visualizer/app/panels/management.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="394">
-          <caret line="80" column="4" selection-start-line="80" selection-start-column="4" selection-end-line="89" selection-end-column="7" />
-          <folding>
-            <element signature="e#1100#1175#0" />
-            <element signature="e#1438#1667#0" />
-            <element signature="e#1444#1666#0" />
-            <element signature="e#1712#2074#0" />
-            <element signature="e#1778#2057#0" />
-            <element signature="e#2133#2397#0" />
-            <element signature="e#2199#2390#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/dash_test/brouillon_2.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
@@ -659,29 +629,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/visualizer/main.py">
+    <entry file="file://$PROJECT_DIR$/visualizer/app/panels/statistiques.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="14" selection-start-column="14" selection-end-column="14" />
+        <state relative-caret-position="1666">
+          <caret line="115" column="59" selection-start-line="115" selection-start-column="59" selection-end-line="115" selection-end-column="59" />
+          <folding>
+            <element signature="e#1919#2071#0" />
+            <element signature="e#2736#2943#0" />
+            <element signature="e#2959#3161#0" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/visualizer/app/panels/statistiques.py">
+    <entry file="file://$PROJECT_DIR$/visualizer/app/panels/management.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/visualizer/db/candidats/gen_random_date.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="123" column="63" selection-start-line="123" selection-start-column="63" selection-end-line="123" selection-end-column="63" />
+        <state relative-caret-position="799">
+          <caret line="48" selection-start-line="48" selection-end-line="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/visualizer/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
           <folding>
-            <element signature="e#0#46#0" expanded="true" />
-            <element signature="e#1408#2331#0" />
-            <element signature="e#1919#2071#0" />
-            <element signature="e#2736#3032#0" />
-            <element signature="e#2742#2942#0" />
-            <element signature="e#3048#3334#0" />
-            <element signature="e#3581#3743#0" />
-            <element signature="e#3777#3848#0" />
-            <element signature="e#3953#4455#0" />
-            <element signature="e#4425#4576#0" />
-            <element signature="e#5673#6188#0" />
+            <element signature="e#0#28#0" expanded="true" />
           </folding>
         </state>
       </provider>
