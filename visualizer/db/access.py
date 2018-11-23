@@ -98,8 +98,10 @@ def query(data,list_queries):
     candidates_selected=list(filter(test,data))         #on effectue la selection des candidats qui nous interessent
 
     #on récupère la liste des values qui nous interessent parmi les candidats selectionnés
+    #création de la liste
     list_values_to_return=[]
-
+    
+    #crécupération des valeurs pour chaque candidat
     for candidat in candidates_selected:
 
         list_temp=[]
@@ -134,4 +136,6 @@ liste des valeurs : ['all']  si vous voulez tout selectionner, ['1','2','3'] si 
 
 Exemple : si vous voulez obtenir les nom, prénom des candidat dont l' 'id' de ficheir est compris entre 1 et 5, la list_queries est:
 [[['prenom'],['all']],[['nom'],['all']],[['fichier','id'],['1','2','3','4','5']]]
+
+Remarques : si on est pas interessé par certaines 'colonnes' de la liste obtenue, on fait juste du slicing, pas besoin de compléxifier la fonction pour ça...
 """
