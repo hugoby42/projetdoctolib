@@ -81,6 +81,23 @@ for etat in etats:
     options_etat.append({'label' : etat, 'value' : etat})
 ###
 
+###Suppression candidat
+def update_output(n_clicks):
+    if n_clicks ==1:
+        supprimer_candidat(id_candidat)
+        print("ok")
+        return "A été supprimé"
+def supprimer_candidat(id_candidat):
+    data=access.getData()
+    i=0
+    while data[i]['id']!=id_candidat:
+        i+=1
+    del data[i]
+    access.update(data)
+
+
+
+
 layout = html.Div([  # page 1
 
 
@@ -179,6 +196,12 @@ layout = html.Div([  # page 1
             ])
         ],
         className="row "),
+            html.Div(style={'marginTop' : '10'},children=[
+            html.Button(id='bouton_suppression', n_clicks=0, children='Supprimer le candidat'),
+            html.Div(id='output-state')
+        ],
+        className="row "),
+
         ], className="subpage")
 
     ], className="page")
