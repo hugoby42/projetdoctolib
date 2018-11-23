@@ -27,7 +27,8 @@ app = dash.Dash("Interface Recrutement Doctolib") # Création de l'application w
 app.config['supress_callback_exceptions']= True
 
 
-
+# Définition d'une page d'accueil, d'abord vide, à partir de laquelle on redirige l'utilisateur (utile ssi on
+# implémente plus tard la possibilité de changer de page en fonction de l'URL
 app.layout = html.Div([
     dcc.Location(id='url', refresh=False),
     html.Div(id='page-content')
@@ -142,6 +143,9 @@ def afficherPage(tab):
     else:
         # Page d'erreur (URL non résolue)
         return erreur404.layout
+    
+# Fonctions de callback deprecated car l'on a annulé jeudi soir de proposer au candidat d'uploader plusieurs
+# fichiers (inutile)
 """
 @app.callback(Output('fichiers-content', 'children'),
               [Input('fichiers-dropdown', 'value')])
@@ -222,7 +226,8 @@ def display_leads_modal_callback(n):
 
     return {"display": "none"} # On la fait disparaître
 
-
+# Fonction permettant d'accéder à la page personnelle d'un candidat, simplement en cliquant sur le lien qui lui est associé.
+# Ne marche pas car il n'est pas possible de créer dynamiquement des callbacks avec Dash
 """
 def getCandidatCallback(id):
     return candidat.getCandidat(id.split("boutonCandidat")[1])
@@ -239,7 +244,7 @@ def close_modal_callback(n, n2):
 
     return 0
 
-
+# Callback appelée lorsque le candidat soumet son formulaire : on enregistre alors ses donnéess dans le fichier input.json
 @app.callback(
     Output('zorimar', 'children'),
     [Input('postuler', 'n_clicks')],
@@ -260,6 +265,13 @@ def update_output(n_clicks, prenom, nom, lieuNaissance, niveau):
     db.access.update(data)
     return []
 
+# Callbacks permettant, sur la page relative à un candidat, 
+# de supprimer ce candidat ou bien de changer son état.
+# Comme précisé lors de la présentation, ces callbacks ne sont pas fonctionnels car je ne parviens pas 
+# à cibler les balises HTML que je veux (elles doivent certainement sortir du scope de ces callbacks,
+# pourtant, je ne peux pas placer ces callbacks dans le fichier panels/candidat.py car ces callbacks font appel à des variables
+# générales
+# Bilan -------> ne plus utiliser Dash, mais Flask, pour être plus bas niveau
 """
 @app.callback(Output('steveJobs', 'text'),
               [Input('etatCandidat', 'value'), Input('supprimerCandidat', 'n_clicks')], [State('steveJobs', 'value')])
