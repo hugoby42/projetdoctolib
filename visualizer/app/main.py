@@ -23,12 +23,13 @@ PATH_BASED_ROUTING = True
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css'] # Feuilles de style CSS utilisées (template)
 app = dash.Dash("Interface Recrutement Doctolib") # Création de l'application web
 app.config['supress_callback_exceptions']= True
+
+
+
 app.layout = html.Div([
     dcc.Location(id='url', refresh=False),
     html.Div(id='page-content')
 ])
-
-
 
 def getHeader():
     header = html.Div(
