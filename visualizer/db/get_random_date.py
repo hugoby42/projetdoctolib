@@ -32,7 +32,7 @@ Pour atteindre des dates inférieures, il faut ruser (sinon "mktime argument out
 def dates_aleatoires_naissance_entretien():
     dateNaissance = date_aleatoire_entre_start_end("01/01/1970 01:30 PM", "31/12/1998 11:59 PM")[:10]
         #on récupère seulement la date
-    jour_entretien = random.randint(0,30)
+    jour_entretien = random.randint(1,30)
     dateEntretien = str(jour_entretien) + "/09/2018"
     return [dateNaissance, dateEntretien]
 

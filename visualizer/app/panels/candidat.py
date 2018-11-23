@@ -107,7 +107,9 @@ def affiche_pretty_fichier(text):
             children.append(html.P(ligne))
             ligne=''
     children.append(html.P(ligne))#on ajoute la dernière ligne
-    return(html.Div(style={'backgroundColor': '#BBD2E1', 'textAlign' : 'left', 'paddingLeft' : '10'},children=children))
+    return(html.Div(style={'backgroundColor': '#BBD2E1',
+                           'textAlign' : 'left',
+                           'paddingLeft' : '10'},children=children))
 
 
 layout = html.Div([  # page 1

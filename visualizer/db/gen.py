@@ -2,7 +2,7 @@
 import random as rd
 import numpy as np
 import db.get_random_date as grd
-
+import os
 
 #On créer des candidats
 nombre_candidats=2
@@ -19,6 +19,16 @@ def formalise_nom(nom):
     maj=nom[0].upper()
     min=nom[1:].lower()
     return(maj+min)
+#DIRECTIRY
+directory=os.getcwd()
+if directory[len(directory)-10:]=='visualizer':
+   os.chdir('./db')
+elif directory[len(directory)-3:]=='app':
+   os.chdir('../')
+   os.chdir('.db')
+elif directory[len(directory)-6:]=='panels':
+   os.chdir('../../')
+   os.chdir('./db')
 
 #On récupère des prénoms
 prenoms=open("prenoms.txt",'r').readlines()
@@ -41,7 +51,7 @@ for ligne in prenoms:
 
 
 #On récupère des noms
-noms=open("db/noms.txt",'r').readlines()
+noms=open("noms.txt",'r').readlines()
 liste_noms=[]
 for ligne in noms:
     car=0
@@ -52,7 +62,7 @@ for ligne in noms:
 
 
 #On rècupère une liste de villes
-villes=open("db/villes_france.csv", "r").readlines()
+villes=open("villes_france.csv", "r").readlines()
 liste_villes=[]
 for ville in villes:
     rang_premiere_virgule=0
