@@ -11,6 +11,7 @@ from plotly import graph_objs as go
 from dash.dependencies import Input, Output, State
 import db
 
+# Code permettant de formatter le style des trois KPIs
 def indicator(color, text, value):
     return html.Div(
         [
