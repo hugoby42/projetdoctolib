@@ -44,8 +44,6 @@ age = {}
 for i in range (1970,1999):
     age[str(i)] = 0
 
-
-
 for candidat in data:
     #répartition des candidats selon leur note
     candidat_note = candidat['metrics']['level']
@@ -74,52 +72,89 @@ for candidat in data:
     somme_notes += candidat['metrics']['level']
     nb_candidats += 1
 
-moyenne = somme_notes/nb_candidats
-nb_jours_moyen_entretien_depot = nb_jours_moyen_entretien_depot/nb_candidats
-nb_comments_moyen = nb_comments_moyen/nb_candidats
-nb_fonctions_moyen = nb_fonctions_moyen/nb_candidats
-qualite_variable_moyenne = qualite_variable_moyenne/nb_candidats
-nb_duplicate_moyen = nb_duplicate_moyen/nb_candidats
+moyenne = round(somme_notes/nb_candidats,2)
+nb_jours_moyen_entretien_depot = round(nb_jours_moyen_entretien_depot/nb_candidats,2)
+nb_comments_moyen = round(nb_comments_moyen/nb_candidats,2)
+nb_fonctions_moyen = round(nb_fonctions_moyen/nb_candidats,2)
+qualite_variable_moyenne = round(qualite_variable_moyenne/nb_candidats,2)
+nb_duplicate_moyen = round(nb_duplicate_moyen/nb_candidats,2)
+
+
+data_notes = [
+    {'values': nb_candidats_note,
+     'labels': ['★✩✩✩✩', '★★✩✩✩', '★★★✩✩', '★★★★✩', '★★★★★'],
+     'type': 'pie',
+     'marker':{'colors': ["#264e86", "#0074e4", "#74dbef", "#eff0f4","#CFA0E9"],},
+     'title':'Répartition des candidats en fonction de leur note',
+     'hoverinfo': 'values+labels'}]
+
+data_etapes = [
+    {'values': list(nb_candidats_etape.values()),
+     'labels': list(nb_candidats_etape.keys()),
+     'type': 'pie',
+     'marker':{'colors': ["#264e86", "#0074e4", "#74dbef", "#eff0f4","#CFA0E9"]},
+     'title': 'Répartition des candidats en fonction de leur étape de recrutement'}]
 
 #Affichage de la page Statistiques
-colors = {
-    'background': '#FFFFFF',
-    'text': '#000000',
-    'contour' : '#2E3F5C'
-}
+colors = {'background': '#FFFFFF', 'text': '#000000', 'contour' : '#2E3F5C'}
 
 layout = html.Div(
     children=[
-       htlm.H1('Statistiques'),
+        htlm.H1('Statistiques'),
         html.Div(
+            htlm.Div(
+                children=[
+                    "Nombre de candidats :{}".format(nb_candidats), htlm.Br(),
+                    'Moyenne des notes = {}'.format(moyenne), htlm.Br()
+                ],
+                style={
+                    'backgroundColor': colors['background']},
+                className='six columns'),
+            className='row'),
+        htlm.Br(),
         htlm.Div(
-            children=[
-                "Nombre de candidats :{}".format(nb_candidats), htlm.Br(),
-                'Moyenne des notes = {}'.format(moyenne), htlm.Br()
-            ],
+            children = [
+                "Nombre de jours moyen entre l'entretien et le dépôt : {}".format(nb_jours_moyen_entretien_depot), htlm.Br(),
+                "Nombre moyen de commentaires par fichier : {}".format(nb_comments_moyen), htlm.Br(),
+                "Nombre moyen de fonctions par fichiers : {}".format(nb_fonctions_moyen), html.Br(),
+                "Qualité moyenne des variables : {}%".format(qualite_variable_moyenne*100), htlm.Br(),
+                "Nombre moyen de triche : {}".format(nb_duplicate_moyen), htlm.Br()],
             style={
-                'backgroundColor': colors['background']
-            }, className='six columns'
-
-        ),className='row'),
-        htlm.Br(), htlm.Br(), htlm.Br(),
-        htlm.Div(children = [
-            "Nombre de jours moyen entre l'entretien et le dépôt : {}".format(nb_jours_moyen_entretien_depot), htlm.Br(),
-            "Nombre moyen de commentaires par fichier : {}".format(nb_comments_moyen), htlm.Br(),
-            "Nombre moyen de fonctions par fichiers : {}".format(nb_fonctions_moyen), html.Br(),
-            "Qualité moyenne des variables : {}".format(qualite_variable_moyenne), htlm.Br(),
-            "Nombre moyen de triche : {}".format(nb_duplicate_moyen), htlm.Br()
-        ]),
+                    'backgroundColor': colors['background']}
+        ),
+        htlm.Br(),
         htlm.Div([
             dcc.Graph(
-                id = '01',
+                id = 'graph_3_Répartiton date naissance',
                 figure={
-                        'data': [{'x':list(age.keys()),'y': list(age.values()),
-                                 'type':'bar', 'name':'age'
-                                 }],
-                        'layout':{'title': 'Répartition des candidats en fonction de leur date de naissance'}
-                }
+                    'data': [{'x':list(age.keys()),'y': list(age.values()),
+                              'type':'bar', 'name':'age'
+                              }],
+                    'layout':{'title': 'Répartition des candidats en fonction de leur date de naissance'}}
             )
-        ])
+        ]),
+        htlm.Br(),
+        html.Div(children = [
+        dcc.Graph(
+            id='graph_1, Répartition en fonction des notes',
+            figure={
+                'data': data_notes,
+                'layout': {
+                    'margin': {'l': 30, 'r': 0, 'b': 30, 't': 0},
+                    'legend': {'x': 0, 'y': 1}},
+            },
+        )
+    ]),
+        htlm.Br(),
+        htlm.Div(children = [
+        dcc.Graph(
+            id='graph_2, Répartition en fonction des étapes',
+            figure={
+                'data': data_etapes,
+                'layout': {
+                    'margin': {'l': 30,'r': 0,'b': 30,'t': 0},
+                    'legend': {'x': 0, 'y': 1}}
+            })
+    ]),
     ]
 )
