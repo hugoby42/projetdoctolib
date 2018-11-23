@@ -6,6 +6,7 @@ import os
 # 2. prettyPrint
 # 3. update
 # 4. query
+
 #Trouver fichier json
 directory=os.getcwd()
 if directory[len(directory)-10:]=='visualizer':
@@ -18,6 +19,7 @@ elif directory[len(directory)-6:]=='panels':
     os.chdir('./db')
 
 
+     
 def getData(fileName = "input.json"):
     # Fonction ouvrant le fichier JSON contenant la liste 
     # des candidats et renvoyant une liste de dictionnaires, 
@@ -60,7 +62,7 @@ def query(data,list_queries):
 #selection est une liste de sous-liste : chaque sous-liste correspond à un paramètre à selectionner [[keys],[values]] - si on veut tout selectionner, on met [key]['all']
 #on fait un équivalent en SQL : selection=dictionaire
 
-    #création de la liste qui va selc
+    #création de la liste qui contient les critère de selection ainsi que les valeurs associées
     selection=[]
     for critere in list_queries:
         if critere[1][0]!='all':
