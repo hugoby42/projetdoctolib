@@ -5,9 +5,23 @@ import math as m
 import pandas as pd
 import flask as fl
 import plotly.plotly as py
-import visualizer.app.panels.auth
-
+import app.panels.auth
+from datetime import datetime as dt
 from plotly import graph_objs as go
 from dash.dependencies import Input, Output, State
-from visualizer.app.app import *
+import db
 
+def indicator(color, text, value):
+    return html.Div(
+        [
+
+            html.P(
+                text,
+                className="twelve columns indicator_text"
+            ),
+            html.P(
+                value,
+                className="indicator_value"
+            ),
+        ],
+        className="four columns indicator")

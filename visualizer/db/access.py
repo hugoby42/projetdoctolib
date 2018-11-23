@@ -46,6 +46,7 @@ def update(data = [], fileName = "input.json"):
     # Après de multiples modifications sur la variable data 
     # contenant l'équivalent du fichier JSON, cette fonction 
     # met à jour les modifications en les enregistrant dans le fichier JSON en question
+
     os.remove(fileName)
 
     with open(fileName, "w") as inputFile: 

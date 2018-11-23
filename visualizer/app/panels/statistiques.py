@@ -1,9 +1,9 @@
-from visualizer.app.panels.__common__ import *
+from app.panels.__common__ import *
 import dash_html_components as htlm
 import dash_core_components as dcc
 from datetime import datetime
-from visualizer.db.access import getData
-import visualizer.app.panels.statistiques_fonctions as stat_fonction
+from db.access import getData
+import app.panels.statistiques_fonctions as stat_fonction
 
 
 data = getData()
@@ -72,6 +72,7 @@ for candidat in data:
     somme_notes += candidat['metrics']['level']
     nb_candidats += 1
 
+# Calcul des paramètres à afficher
 moyenne = round(somme_notes/nb_candidats,2)
 nb_jours_moyen_entretien_depot = round(nb_jours_moyen_entretien_depot/nb_candidats,2)
 nb_comments_moyen = round(nb_comments_moyen/nb_candidats,2)
@@ -79,7 +80,7 @@ nb_fonctions_moyen = round(nb_fonctions_moyen/nb_candidats,2)
 qualite_variable_moyenne = round(qualite_variable_moyenne/nb_candidats,2)
 nb_duplicate_moyen = round(nb_duplicate_moyen/nb_candidats,2)
 
-
+# Critères de notation possibles
 data_notes = [
     {'values': nb_candidats_note,
      'labels': ['★✩✩✩✩', '★★✩✩✩', '★★★✩✩', '★★★★✩', '★★★★★'],
@@ -87,6 +88,7 @@ data_notes = [
      'marker':{'colors': ["#264e86", "#0074e4", "#74dbef", "#eff0f4","#CFA0E9"],}
      }]
 
+# Création du dictionnaire décrivant la répartition des candidats
 data_etapes = [
     {'values': list(nb_candidats_etape.values()),
      'labels': list(nb_candidats_etape.keys()),
@@ -96,6 +98,7 @@ data_etapes = [
 #Affichage de la page Statistiques
 colors = {'background': '#FFFFFF', 'text': '#000000', 'contour' : '#2E3F5C'}
 
+# Corps de la page
 layout = html.Div(
     children=[
         htlm.H1('Statistiques'),
@@ -111,8 +114,11 @@ layout = html.Div(
                 className='six columns'),
             className='row'),
         htlm.Br(),
+
+
+
         htlm.Div(
-            html.Div(
+            html.Div(# Affichage de variables moyennes générales
             children = [
                 "Nombre de jours moyen entre l'entretien et le dépôt : {}".format(nb_jours_moyen_entretien_depot), htlm.Br(),
                 "Nombre moyen de commentaires par fichier : {}".format(nb_comments_moyen), htlm.Br(),
@@ -126,7 +132,10 @@ layout = html.Div(
         ),
         htlm.Br(),
         htlm.Br(),
-        html.Div(                       #Graphe 1: Répartition en fonction de leur note
+
+
+
+        html.Div(#Graphe 1: Répartition en fonction de leur note
             style={'backgroundColor' : '#FFFFFF'},
             children = [
                 html.H3(style={'textAlign' :'center'},
@@ -142,7 +151,10 @@ layout = html.Div(
                 )
         ]),
         htlm.Br(),
-        htlm.Div(                       #Graphe 2 : Répartition en fonction de leur étape de recrutement
+
+
+
+        htlm.Div(#Graphe 2 : Répartition en fonction de leur étape de recrutement
             style={'backgroundColor' : '#FFFFFF'},
             children = [
                 html.H3(style={'textAlign' :'center'},
@@ -157,7 +169,11 @@ layout = html.Div(
                     })
             ]),
         htlm.Br(),
-        htlm.Div(
+
+
+
+
+        htlm.Div(# Graphe 3 : Répartition en fonction de leur âge
             style={'backgroundColor' : '#FFFFFF'},
             children = [
                 html.H3(style={'textAlign' :'center'},
@@ -168,9 +184,6 @@ layout = html.Div(
                         'data': [{'x':list(age.keys()),'y': list(age.values()),'type':'bar', 'name':'age'}]
                     }
             )
-        ])                  #Graphe 3 : Répartition en fonction des enfants
-
-
-
+        ])
     ]
 )

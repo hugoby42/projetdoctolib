@@ -85,15 +85,58 @@ liste_lieu_rdv=['Eiffel','Bouygues','Breguet']
 ##############On créer des fichiers avec des stats
 nom_fichier_python="exercise.py"
 contenu_python="""
-def sum(a,b):
-    return(a+b)"""
+#!/usr/bin/env python3
+
+from __future__ import print_function
+
+
+class ListInstance:
+
+    #Mix-in class that provides a formatted print() or str() of instances via
+    #inheritance of __str__ coded here; displays instance attrs only; self is
+    #instance of lowest class; __X names avoid clashing with client's attrs
+
+
+    def __attrnames(self):
+        result = ''
+        for attr in sorted(self.__dict__):
+            result += '\t%s=%s\n' % (attr, self.__dict__[attr])
+        return result
+
+    def __str__(self):
+        return '<Instance of %s, address %s:\n%s>' % (
+            self.__class__.__name__,
+            id(self),
+            self.__attrnames())"""
 nom_fichier_test_python="test_exercise.py"
 contenu_test="""
-import pytest
-import exercise.py as Ex
+#!/usr/bin/env python3
 
-def test_sum():
-    assert ( Ex.sum(a,b)== a+b)"""
+def tester(listerclass, sept=False):
+
+    class Super:
+
+        def __init__(self):
+            self.data1 = 'spam'
+
+        def ham(self):
+            pass
+
+    class Sub(Super, listerclass):
+
+        def __init__(self):
+            Super.__init__(self)
+            self.data2 = 'eggs'
+            self.data3 = 42
+
+        def spam(self):
+            pass
+
+    instance = Sub()
+    print(instance)
+    if sept:
+        print('-' * 80)
+"""
 
 def combien_fichier(id_candidat,dateEntretien,nombre_candidats):
     """ Retourne une liste de dictionnaires représentant les fichiers envoyés par le candidat
