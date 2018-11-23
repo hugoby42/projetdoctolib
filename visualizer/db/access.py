@@ -12,7 +12,7 @@ if directory[len(directory)-10:]=='visualizer':
     os.chdir('./db')
 elif directory[len(directory)-3:]=='app':
     os.chdir('../')
-    os.chdir('.db')
+    os.chdir('./db')
 elif directory[len(directory)-6:]=='panels':
     os.chdir('../../')
     os.chdir('./db')

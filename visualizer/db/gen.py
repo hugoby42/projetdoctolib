@@ -21,7 +21,7 @@ def formalise_nom(nom):
     return(maj+min)
 
 #On récupère des prénoms
-prenoms=open("db/prenoms.txt",'r').readlines()
+prenoms=open("prenoms.txt",'r').readlines()
 
 liste_prenoms=[]
 for ligne in prenoms:

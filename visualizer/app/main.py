@@ -9,8 +9,8 @@ import plotly.plotly as py
 
 from plotly import graph_objs as go
 from dash.dependencies import Input, Output, State
-from app.panels import candidat, login, main, management, erreur404, postuler, statistiques
-from app.app import *
+from visualizer.app.panels import candidat, login, main, management, erreur404, postuler, statistiques
+from visualizer.app.app import *
 
 
 
@@ -22,7 +22,7 @@ PATH_BASED_ROUTING = True
 
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css'] # Feuilles de style CSS utilisées (template)
 app = dash.Dash("Interface Recrutement Doctolib") # Création de l'application web
-app.config.supress_callback_exceptions = True 
+app.config['supress_callback_exceptions']= True
 app.layout = html.Div([
     dcc.Location(id='url', refresh=False),
     html.Div(id='page-content')
