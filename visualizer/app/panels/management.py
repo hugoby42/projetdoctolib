@@ -40,10 +40,12 @@ for candidat in data:
 
     nb_candidats += 1
 
-print(nb_candidats_note)
+print(nb_candidats_etape)
+print(list(nb_candidats_etape.values()))
+print(type(list(nb_candidats_etape.values())))
 
 
-data = [
+data_notes = [
         {
             'values': nb_candidats_note,
             'labels': ['★✩✩✩✩', '★★✩✩✩', '★★★✩✩', '★★★★✩', '★★★★★'],
@@ -51,12 +53,21 @@ data = [
         },
     ]
 
+data_etapes = [
+    {
+        'values': list(nb_candidats_etape.values()),
+        'labels': list(nb_candidats_etape.keys()),
+        'type': 'pie'
+    }
+]
+
 
 layout=html.Div([
+    html.Div(children = [
         dcc.Graph(
-            id='graph',
+            id='graph_1',
             figure={
-                'data': data,
+                'data': data_etapes,
                 'layout': {
                     'margin': {
                         'l': 30,
@@ -64,8 +75,31 @@ layout=html.Div([
                         'b': 30,
                         't': 0
                     },
-                    'legend': {'x': 'bon', 'y': 'très bon'}
+                    'legend': {'x': 0, 'y': 1}
                 }
-            }
-        )
-    ])
+            })]
+    ),
+    htlm.Br(),
+    htlm.H1("C'est OK !"),
+    htlm.Br(),
+    htlm.Div(children = [
+        dcc.Graph(
+            id='graph_2',
+            figure={
+                'data': data_notes,
+                'layout': {
+                    'margin': {
+                        'l': 30,
+                        'r': 0,
+                        'b': 30,
+                        't': 0
+                    },
+                    'legend': {'x': 0, 'y': 1}
+                }
+            })
+        ]
+    ),
+    htlm.H2('Tout est imprimé !!')
+])
+
+

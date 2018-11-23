@@ -91,6 +91,7 @@ colors = {
 layout = html.Div(
     children=[
        htlm.H1('Statistiques'),
+        html.Div(
         htlm.Div(
             children=[
                 "Nombre de candidats :{}".format(nb_candidats), htlm.Br(),
@@ -100,7 +101,7 @@ layout = html.Div(
                 'backgroundColor': colors['background']
             }, className='six columns'
 
-        ),
+        ),className='row'),
         htlm.Br(), htlm.Br(), htlm.Br(),
         htlm.Div(children = [
             "Nombre de jours moyen entre l'entretien et le dépôt : {}".format(nb_jours_moyen_entretien_depot), htlm.Br(),
@@ -109,19 +110,16 @@ layout = html.Div(
             "Qualité moyenne des variables : {}".format(qualite_variable_moyenne), htlm.Br(),
             "Nombre moyen de triche : {}".format(nb_duplicate_moyen), htlm.Br()
         ]),
-        dcc.Graph(
-            id = '01',
-            figure={
-                'data': [
-                    {'x':list(age.keys()),'y': list(age.values()),
-                     'type':'bar', 'name':'age'
-                     }
-                ],
-                'layout':{
-                    'title': 'Répartition des candidats en fonction de leur date de naissance'
+        htlm.Div([
+            dcc.Graph(
+                id = '01',
+                figure={
+                        'data': [{'x':list(age.keys()),'y': list(age.values()),
+                                 'type':'bar', 'name':'age'
+                                 }],
+                        'layout':{'title': 'Répartition des candidats en fonction de leur date de naissance'}
                 }
-            }
-        )
+            )
+        ])
     ]
 )
-
