@@ -228,7 +228,7 @@ def getCandidat(id_candidat = 2):
                 ])
             ],
             className="row "),
-
+            #Bouton de suppression candidat
             html.Div(style={'marginTop' : '10'},children=[
                 html.Button(id='supprimerCandidat', n_clicks=0, children='Supprimer le candidat'),
                 html.Div(id='output-state')
