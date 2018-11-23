@@ -95,7 +95,19 @@ def supprimer_candidat(id_candidat):
     del data[i]
     access.update(data)
 
+##AFFICCHER UN JOLI FICHIER
+def affiche_pretty_fichier(text):
+    children=[]
+    ligne=''
+    for car in text:
 
+        if car != '\n':
+            ligne+=car
+        else:
+            children.append(html.P(ligne))
+            ligne=''
+    children.append(html.P(ligne))#on ajoute la dernière ligne
+    return(html.Div(style={'backgroundColor': '#BBD2E1', 'textAlign' : 'left', 'paddingLeft' : '10'},children=children))
 
 
 layout = html.Div([  # page 1
@@ -166,12 +178,29 @@ layout = html.Div([  # page 1
             dcc.Dropdown(
                     options=options_file,
                     id="fichiers-dropdown",
-                    value='neutre'
+                    value='fichier-' + data_candidat['fichiers'][0]['id']
                     ),
                 html.Div(id='fichiers-content',style={'marginTop' : '10',
                                                       'backgroundColor': colors['background'],
                                                         "border": "1px solid "+ colors['contour'],}
-                         , children=[html.Div([])])
+                         , children=[html.Div([
+                        html.Div(html.Div([
+                html.H3(data_candidat['fichiers'][0]['nom']),
+                affiche_pretty_fichier(data_candidat['fichiers'][0]['contenu']),
+                "Date d'upload : " + data_candidat['fichiers'][0]['stats']['dateUpload'],
+                html.Br(),
+                "Commentaire sur le code : " + data_candidat['fichiers'][0]['stats']['compteRendu'],
+                html.Br(),
+                "Nombre de fonctions : " + str(data_candidat['fichiers'][0]['stats']['functionsCount']),
+                html.Br(),
+                "Nombre de commentaires : " + str(data_candidat['fichiers'][0]['stats']['commentCount']),
+                html.Br(),
+                "Qualité du nom des variables : " + str(int(round(data_candidat['fichiers'][0]['stats']['variableNameQuality'],2)*100))+'%',
+                html.Br(),
+                "Nombre de similaritées avec notre base de données : " + str(len(data_candidat['fichiers'][0]['stats']['duplicate'])),
+
+            ]))
+                    ])])
                 ])
         ],
         className="row "),
@@ -180,12 +209,17 @@ layout = html.Div([  # page 1
             dcc.Dropdown(
                     options=options_test,
                     id="fichiers-test-dropdown",
-                    value='neutre'
+                    value='fichier-test-' + data_candidat['fichiers'][0]['id']
                     ),
                 html.Div(id='tests-content',style={'marginTop' : '10',
                                                       'backgroundColor': colors['background'],
                                                         "border": "1px solid " + colors['contour'],}
-                         , children=[])
+                         , children=[
+                        html.Div([
+                html.H3(data_candidat['fichiers'][0]['nomTest']),
+                affiche_pretty_fichier(data_candidat['fichiers'][0]['contenu_Test']),
+            ])
+                    ])
                 ])
         ],
         className="row "),
@@ -196,7 +230,8 @@ layout = html.Div([  # page 1
             ])
         ],
         className="row "),
-            html.Div(style={'marginTop' : '10'},children=[
+
+        html.Div(style={'marginTop' : '10'},children=[
             html.Button(id='bouton_suppression', n_clicks=0, children='Supprimer le candidat'),
             html.Div(id='output-state')
         ],
@@ -214,7 +249,7 @@ def affiche_fichier(fichiersdropdown):
         if fichiersdropdown == 'fichier-'+fichier['id']:
             return html.Div(html.Div([
                 html.H3(fichier['nom']),
-                html.P(fichier['contenu'],style={'backgroundColor': '#BBD2E1'}),
+                affiche_pretty_fichier(fichier['contenu']),
                 "Date d'upload : " + fichier['stats']['dateUpload'],
                 html.Br(),
                 "Commentaire sur le code : " + fichier['stats']['compteRendu'],
@@ -236,7 +271,7 @@ def affiche_test(fichierstestdropdown):
         if fichierstestdropdown == 'fichier-test-'+fichier['id']:
             return html.Div([
                 html.H3(fichier['nomTest']),
-                html.P(fichier['contenu_Test'],style={'backgroundColor': '#BBD2E1'}),
+                affiche_pretty_fichier(fichier['contenu_Test']),
             ])
 
 @app.callback(Output('etat-content','children'),

@@ -14,6 +14,12 @@ def make_dash_table(table):
         html_row.append(html.Td([candidat['prenom']]))
         html_row.append(html.Td([candidat['metrics']['level']]))
         html_row.append(html.Td([candidat['etat']]))
+        html_row.append(html.Td(html.Div(style={'marginTop' : '10'},children=[
+                                html.Button(id='bouton_candidat', n_clicks=0, children='Acceder au candidat'),
+                                html.Div(id='output-state')
+        ],
+        className="row "),
+))
         html_table.append(html.Tr(html_row))
     return html_table
 ###
