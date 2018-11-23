@@ -3,7 +3,7 @@ import visualizer.db.access as access
 import os
 from visualizer.app.panels.management import get_id_candidat
 #le candidat conserné
-id_candidat=get_id_candidat()
+id_candidat=2
 #importer les données du candidat
 data=access.getData()
 data_candidat=data[id_candidat]
@@ -107,9 +107,7 @@ def affiche_pretty_fichier(text):
             children.append(html.P(ligne))
             ligne=''
     children.append(html.P(ligne))#on ajoute la dernière ligne
-    return(html.Div(style={'backgroundColor': '#BBD2E1',
-                           'textAlign' : 'left',
-                           'paddingLeft' : '10'},children=children))
+    return(html.Div(style={'backgroundColor': '#BBD2E1', 'textAlign' : 'left', 'paddingLeft' : '10'},children=children))
 
 
 layout = html.Div([  # page 1
@@ -180,7 +178,7 @@ layout = html.Div([  # page 1
             dcc.Dropdown(
                     options=options_file,
                     id="fichiers-dropdown",
-                    value='fichier-' + data_candidat['fichiers'][0]['id']
+                    value='fichier-'
                     ),
                 html.Div(id='fichiers-content',style={'marginTop' : '10',
                                                       'backgroundColor': colors['background'],
@@ -292,3 +290,4 @@ def update_database(etatdropdown):
         os.chdir('../../')
         os.chdir('./db')
     visualizer.db.access.update(data, fileName = "input.json")
+
