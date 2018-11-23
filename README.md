@@ -7,32 +7,61 @@ Description de l'arborescence :
 - Le dossier visualizer/db/ contient la Library d'accès au fichier JSON (access.py) ainsi que le module de création aléatoire d'une base de données de candidats ;
 
 ── HUMANS.txt
+
 ├── LICENSE
+
 ├── MVP.docx
+
 ├── Planning.docx
+
 ├── README.md
+
 └── visualizer
+
     ├── app
+    
     │   ├── main.py
+    
     │   └── panels
+    
     │       ├── __common__.py
+    
     │       ├── auth.py
+    
     │       ├── candidat.py
+    
     │       ├── login.py
+    
     │       ├── main.py
+    
     │       ├── management.py
+    
     │       ├── postuler.py
+    
     │       ├── statistiques.py
+    
     │       └── statistiques_fonctions.py
+    
     ├── db
+    
     │   ├── access.py
+    
     │   ├── gen.py
+    
     │   ├── get_random_date.py
+    
     │   ├── input.json
+    
     │   ├── input_model.json
+    
     │   ├── noms.txt
+    
     │   ├── prenoms.txt
+    
     │   ├── test_gen.py
+    
     │   └── villes_france.csv
+    
     ├── iwantyou.PNG
+    
     └── main.py
